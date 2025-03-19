@@ -1,0 +1,23 @@
+{% load notification_tags %}
+<div class="maintop">
+    <div class="search">
+        <form action="{% url 'search'%}" method="GET">
+            {% csrf_token %}
+            <input id="query" name="q" type="text" placeholder="Search by specialization, clinic,doctor,service,area ...">
+            <button id="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <div class="menus">
+        {%if user.is_authenticated%}
+        <div class="accounts">
+            <a href="{% url 'user_notifications' %}"><i class="fa-solid fa-bell"></i><span>{% user_unread_notifications_count %}</span></a>
+            <a href="{% url 'profile_view'%}">{{user.username}}</a>
+        </div>
+        {%else%}
+        <div class="signs">
+            <a href="{% url 'register' %}">Signup</a>
+            <a href="{% url 'login' %}">Log in</a>
+        </div>
+        {%endif%}
+    </div>
+</div>

@@ -1,0 +1,251 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\admin\appointment_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 20px;
+            width: 60%;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .close-modal {
+            cursor: pointer;
+            font-size: 24px;
+            color: #666;
+        }
+
+        .reject-reason {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .modal-body p {
+            border: 1px solid black;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        .action-buttons {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .approve-btn {
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #007f3c;
+            font-weight: 900;
+            font-size: 18px;
+            color: white;
+            border: none;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+        }
+
+        .reject-btn {
+            padding: 10px 30px;
+            border-radius: 4px;
+            background-color: red;
+            font-weight: 900;
+            font-size: 18px;
+            color: white;
+            border: none;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+        }
+
+        .rejection_input {
+            width: 500px;
+            height: 100px;
+            max-height: 100px;
+            min-height: 100px;
+            padding: 5px;
+            color: #000000;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .submit-reject-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 6px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        {% include 'admin/sidebar.html' %}
+        <div class="mainbarcentre">
+            {% include 'admin/navbar.html' %}
+            <div class="appointmentsdash">
+                <div class="dashbar">
+                    <h1>Appointments Dashboard</h1>
+                    <div class="appointtable">
+                        <h3>Currently Applied Appointments</h3>
+                        {% if appointments %}
+                        <table>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Doctor</th>
+                                <th>Clinic</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                            {% for appointment in appointments %}
+                            <tr>
+                                <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td>
+                                <td>Dr. {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</td>
+                                <td>{{ appointment.doctor.clinic.name }}</td>
+                                <td>{{ appointment.appointment_date }}</td>
+                                <td>{{ appointment.appointment_time }}</td>
+                                <td>{{ appointment.get_appointment_type_display }}</td>
+                                <td>
+                                    <h2>{{ appointment.status }}</h2>
+                                    <span class="status-badge" style="
+                                        {% if appointment.status == 'pending' %}
+                                            background-color: #ffd700;
+                                        {% elif appointment.status == 'Approved' %}
+                                            background-color: #4CAF50;
+                                        {% elif appointment.status == 'Completed' %}
+                                            background-color: #0c8de0;
+                                        {% elif appointment.status == 'Cancelled' %}
+                                            background-color: #f44336;
+                                        {% endif %}
+                                        color: {% if appointment.status == 'pending' %}black{% else %}white{% endif %};
+                                        padding: 4px 8px;
+                                        border-radius: 4px;
+                                    ">
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="view-btn" onclick="openModal('modal-{{ appointment.id }}')">View</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        {% else %}
+                            <p>No appointments booked yet.</p>
+                        {% endif %}
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+        <!-- Modals -->
+        {% for appointment in appointments %}
+        <div id="modal-{{ appointment.id }}" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Appointment Details</h2>
+                    <span class="close-modal" onclick="closeModal('modal-{{ appointment.id }}')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Patient:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</p>
+                    <p><strong>Doctor:</strong> Dr. {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</p>
+                    <p><strong>Clinic:</strong> {{ appointment.doctor.clinic.name }}</p>
+                    <p><strong>Date:</strong> {{ appointment.appointment_date }}</p>
+                    <p><strong>Time:</strong> {{ appointment.appointment_time }}</p>
+                    <p><strong>Type:</strong> {{ appointment.get_appointment_type_display }}</p>
+                    
+                    <div class="action-buttons">
+                        <form method="post" action="{% url 'approve_appointment' appointment.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="approve-btn">Approve</button>
+                        </form>
+                        
+                        <button class="reject-btn" onclick="showRejectReason(this)">Reject</button>
+                        
+                        <form method="post" action="{% url 'reject_appointment' appointment.id %}" 
+                            class="reject-reason">
+                            {% csrf_token %}
+                            <textarea name="rejection_reason" 
+                                      placeholder="Enter rejection reason..." 
+                                      required class="rejection_input"></textarea>
+                            <button type="submit" class="submit-reject-btn">Submit Rejection</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+    <script src="https://kit.fontawesome.com/7540b12065.js" crossorigin="anonymous"></script>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            // Reset reject forms when closing modal
+            const modal = document.getElementById(modalId);
+            const rejectForms = modal.querySelectorAll('.reject-reason');
+            rejectForms.forEach(form => {
+                form.style.display = 'none';
+                form.querySelector('textarea').value = '';
+            });
+        }
+
+        function showRejectReason(button) {
+            const actionButtons = button.parentElement;
+            const rejectForm = actionButtons.querySelector('.reject-reason');
+            button.style.display = 'none';
+            rejectForm.style.display = 'block';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

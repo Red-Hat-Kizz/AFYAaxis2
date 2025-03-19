@@ -1,0 +1,14 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\appointments\user_appointment_list.html -->
+{% extends "base/layout.html" %}
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<h1>Your Appointments</h1>
+<ul>
+    {% for appointment in appointments %}
+        <li>
+            Appointment with Dr. {{ appointment.doctor.last_name }} on {{ appointment.appointment_date }} at {{ appointment.appointment_time }} - Status: {{ appointment.status }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

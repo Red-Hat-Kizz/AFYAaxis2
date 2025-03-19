@@ -1,0 +1,40 @@
+{% extends "admin/admin_Layout.html" %}
+{%load static%}
+{%block content%}
+<div class="contentsleft beneficiaries">
+    <h1>Afya Axis Beneficiaries</h1>
+    <div class="usersdiv">
+        {%for user in users%}
+        <div class="user">
+                <div class="userpic">
+                    {%if user.profile.profile_picture%}
+                    <img src="{{user.profile.profile_picture.url}}" alt="">
+                    {%else%}
+                    <img src="{% static 'images/default-user.png' %}" alt="">
+                    {%endif%}
+                </div>
+                <div class="username">
+                    <h2>{{user.first_name}} {{user.last_name}}</h2>
+                </div>
+                <div class="options">
+                    <ul>
+                        <li><i class="fa-solid fa-ellipsis-vertical"></i>
+                        <ul class="drop">
+                            <li><a href="">
+                                <i class="fa-solid fa-message"></i>
+                                <h3>Message {{user.first_name}}</h3>
+                            </a></li>
+                            <li><a href="">
+                                <i class="fa-solid fa-ban"></i>
+                                <h3>Ban {{user.first_name}}</h3>
+                            </a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%include 'admin/contentsright.html'%}
+{%endblock%}

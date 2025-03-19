@@ -1,0 +1,148 @@
+{% extends "admin/admin_Layout.html" %}
+{%load static%}
+{%load notification_tags%}
+{%block content%}
+<div class="contentsleft">
+    <div class="middlecontainer">
+        <div class="leftdiv">
+            <h2>Welcome</h2>
+            <h1>{{ user.first_name }} {{user.last_name }}</h1><hr>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing  elit. Unde, veniam. Veniam consectetur quae nemo quidem  non earum natus harum vel, enim sit ipsa eveniet libero  maiores vero eligendi id eum?</p>
+        </div>
+    </div>
+    <!-- <div class="newstaff">
+        <a href="">New Admin</a>
+        <a href="">New Doctor</a>
+        <a href="">New Clinic</a>
+    </div> -->
+    <div class="appointments">
+        <div class="appdiv">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div class="side">
+                <h2>{{today_appointments_count}}</h2>
+                <h3>Appointments made</h3>
+                <h4>Today</h4>
+            </div>
+        </div>
+        <div class="appdiv">
+            <i class="fa-solid fa-check"></i>
+           <div class="side">
+                <h2>{{approved_today_count}}</h2>
+                <h3>Approved appointments</h3>
+                <h4>Today</h4>
+           </div>
+        </div>
+        <div class="appdiv">
+            <i class="fa-solid fa-user-doctor"></i>
+            <div class="side">
+                <h2>Doctors</h2>
+                <h3>{{doctors_count}}</h3>
+            </div>
+        </div>
+        <div class="appdiv">
+            <i class="fa-solid fa-house-medical-circle-check"></i>
+            <div class="side">
+                <h2>Clinics</h2>
+                <h3>{{clinics_count}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="moredetails">
+        <div class="more">
+            <h1>users</h1>
+            <h1>Statistics</h1>
+        </div>
+        <div class="morebox">
+            <div class="users">
+                {%for user in users%}
+                <div class="user">
+                    <div class="userpic">
+                        {%if user.profile.profile_picture%}
+                        <img src="{{user.profile.profile_picture.url}}" alt="">
+                        {%else%}
+                        <img src="{% static 'images/default-user.png' %}" alt="">
+                        {%endif%}
+                    </div>
+                    <div class="username">
+                        <h2>{{user.first_name}} {{user.last_name}}</h2>
+                    </div>
+                    <div class="options">
+                        <ul>
+                            <li><i class="fa-solid fa-ellipsis-vertical"></i>
+                            <ul class="drop">
+                                <li><a href="">
+                                    <i class="fa-solid fa-message"></i>
+                                    <h3>Message {{user.first_name}}</h3>
+                                </a></li>
+                                <li><a href="">
+                                    <i class="fa-solid fa-ban"></i>
+                                    <h3>Ban {{user.first_name}}</h3>
+                                </a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="statleft">
+                        <div class="icon">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <div class="statinfo">
+                            <h2>Total Ambulance request</h2>
+                            <h3>Today</h3>
+                        </div>
+                    </div>
+                    <div class="statright">
+                        <h1>40</h1>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="statleft">
+                        <div class="icon">
+                            <i class="fa-solid fa-ban cancel"></i>
+                        </div>
+                        <div class="statinfo">
+                            <h2>Missed or cancelled appointments</h2>
+                        </div>
+                    </div>
+                    <div class="statright">
+                        <h1>40</h1>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="statleft">
+                        <div class="icon">
+                            <i class="fa-solid fa-hourglass-start"></i>
+                        </div>
+                        <div class="statinfo">
+                            <h2>Avg. Appointment time per patient</h2>
+                        </div>
+                    </div>
+                    <div class="statright">
+                        <h1>40</h1>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="statleft">
+                        <div class="icon">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <div class="statinfo">
+                            <h2>Total Ambulance request</h2>
+                            <h3>Today</h3>
+                        </div>
+                    </div>
+                    <div class="statright">
+                        <h1>40</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%include 'admin/contentsright.html'%}
+{%endblock%}

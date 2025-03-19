@@ -1,0 +1,38 @@
+{% extends "admin/admin_Layout.html" %}
+{%load static%}
+{%block content%}
+<div class="contentsleft beneficiaries">
+    <div class="add">
+        <h1>Afya Axis Doctors</h1>
+        <a href="{% url 'create_doctor' %}">Add a doctor</a>
+    </div>
+    <div class="doctorsdiv">
+        {%for doctor in doctors%}
+        <div class="doc">
+            <div class="docpic">
+                {%if doctor.profile_picture%}
+                <img src="{{doctor.profile_picture.url}}" alt="">
+                {%else%}
+                <img src="{% static 'images/default-doc.png' %}" alt="">
+                {%endif%}
+            </div>
+            <div class="docdetails">
+                <h2>Dr. {{doctor.first_name}} {{doctor.last_name}}</h2>
+                <p>{{ doctor.specialization.name }}</p>
+                <div class="docratings">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+            <form action="#">
+                <button>View Profile</button>
+            </form>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%include 'admin/contentsright.html'%}
+{%endblock%}

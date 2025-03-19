@@ -1,0 +1,136 @@
+{%load static%}
+<div class="sidebar">
+    <div class="sidebarbox">
+        <div class="head">
+            <img src="{% static 'images/logo.png' %}" alt="">
+            <h1>AFYA AXIS</h1>
+        </div>
+        <div class="topbox">
+            <ul>
+                <li><a href="{% url 'home' %}">
+                    <i class="fa-solid fa-hospital"></i>
+                    <h2>Home</h2>
+                </a></li>
+            </ul>
+        </div>
+        <hr>
+        <div class="middlebox">
+            <ul>
+                <li>
+                    <a href="{% url 'doctor_list' %}">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <h2>Our Doctors</h2>  
+                </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-btn">
+                        <i class="fa-solid fa-microscope"></i>
+                        <h2>Health Education</h2>
+                        <i class="fa-solid fa-caret-down dropdown-icon"></i>
+                    </a>
+                    <ul class="submenu dropdown-content">
+                        <li><a href="">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            <h2>Maternal and Child health</h2>
+                        </a></li>
+                        <li><a href="">
+                            <i class="fa-solid fa-virus-covid"></i>
+                            <h2>Disease Info</h2>
+                        </a></li>
+                    </ul>
+                </li> 
+                <li class="dropdown">
+                    <a class="dropdown-btn">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <h2>Health Alerts</h2>
+                        <i class="fa-solid fa-caret-down dropdown-icon"></i>
+                    </a>
+                    <ul class="submenu dropdown-content">
+                        <li><a href="">
+                            <i class="fa-solid fa-disease"></i>
+                            <h2>Outbreak Alerts</h2>
+                        </a></li>
+                        <li><a href="">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            <h2>Public Health concerns</h2>
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-btn">
+                        <i class="fa-solid fa-truck-medical"></i>
+                        <h2>Emergency Services</h2>
+                        <i class="fa-solid fa-caret-down dropdown-icon"></i>
+                    </a>
+                    <ul class="submenu dropdown-content">
+                        <li><a href="">
+                            <i class="fa-solid fa-kit-medical"></i>
+                            <h2>First Aid Guide</h2>
+                        </a></li>
+                        <li><a href="{% url 'clinic_list' %}">
+                            <i class="fa-solid fa-house-medical-flag"></i>
+                            <h2>Afya Axis Clinics</h2>
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-btn">
+                        <i class="fa-solid fa-weight-scale"></i>
+                        <h2>Health monitoring tools</h2>
+                        <i class="fa-solid fa-caret-down dropdown-icon"></i>
+                    </a>
+                    <ul class="submenu dropdown-content">
+                        <li><a href="{% url 'chatbot'%}">
+                            <i class="fa-solid fa-message-bot"></i>
+                            <h2>Afya Axis Health Assistant</h2>
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-btn">
+                        <i class="fa-solid fa-microscope"></i>
+                        <h2>Community Support</h2>
+                        <i class="fa-solid fa-caret-down dropdown-icon"></i>
+                    </a>
+                    <ul class="submenu dropdown-content">
+                        <li><a href="">
+                            <i class="fa-solid fa-group-arrows-rotate"></i>
+                            <h2>Discusion Forums</h2>
+                        </a></li>
+                        <li><a href="">
+                            <i class="fa-solid fa-handshake"></i>
+                            <h2>Health Campaigns</h2>
+                        </a></li> 
+                    </ul>
+                </li>
+                {% comment %} {% if user.is_authenticated and user.is_staff %}
+                <li><a href="{% url 'admin_appointment_list' %}">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h2>Manage Appointments</h2>
+                </a></li>
+                {% endif %} {% endcomment %}
+            </ul>
+        </div>
+        <hr>
+        <div class="bottombox">
+            <ul>
+                {% if user.is_authenticated and user.is_staff%}
+                <li><a href="{% url 'dashboard_home' %}">
+                    <i class="fa-solid fa-bars"></i>
+                    <h2>Admin Dashboard</h2>
+                </a></li>
+                {%endif%}
+                <li><a href="">
+                    <i class="fa-solid fa-gear"></i>
+                    <h2>Settings</h2>
+                </a></li>
+                {% if user.is_authenticated%}
+                <li><a href="{% url 'logout' %}">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <h2>Logout</h2>
+                </a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+</div>

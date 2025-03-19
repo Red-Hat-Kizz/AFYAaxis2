@@ -1,0 +1,71 @@
+{%load static%}
+{% load notification_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afya Axis</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <main>
+        <div class="bodycontent">
+            {% if user.is_staff and not user.is_superuser %}
+                {% include 'doctors/sidebar.html' %}
+            {% else %}
+                {% include 'components/sidebar.html' %}
+            {% endif %}
+            <div class="mainbar">
+                <div class="maincontents">
+                    {%include 'components/navbar.html'%}
+                    <div class="maintopresponsive">
+                        <div class="logorepo">
+                            <a href="">
+                                <img src="{% static 'images/logo.png' %}" alt="">
+                            </a>
+                            <div class="searchrepo">
+                                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                            </div>
+                        </div>
+                        <div class="profilerepo">
+                            
+                            <div class="userbox">
+                                <a href="{% url 'profile_view'%}">
+                                    {% if profile.profile_picture %}
+                                        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+                                    {%else%}
+                                        <img src="{% static 'images/default-user.png' %}" alt="">
+                                    {% endif %}
+                                    
+                                    <h2>{{user.username}}</h2>
+                                </a> 
+                            </div>
+                            <div class="sliderepo">
+                                <button id="opensidebar">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main">
+                        {% block content %}
+                        
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    {% comment %} {%include 'components/footer.html'%} {% endcomment %}
+    <script src="{% static 'js/chat.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.5/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/7540b12065.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/drop.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</body>
+</html>

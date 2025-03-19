@@ -1,0 +1,30 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+</head>
+<body>
+    <main>
+        <div class="emailbox">
+            <div class="email">
+                <h1>SUCCESS!</h1>
+                <p>Your account was created Successfully</p>
+                <p>Check your email for your afya ID</p>
+                <div class="successicon">
+                    <img src="{% static 'images/Success Micro-interaction (1).gif'%}" alt="">
+                </div>
+                <div class="continue">
+                    <a class="" href="{% url 'edit_profile'%}">Continue</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

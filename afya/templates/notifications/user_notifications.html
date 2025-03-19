@@ -1,0 +1,134 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\notifications\user_notifications.html -->
+{% extends "base/layout.html" %}
+{% load static %}
+{% load notification_tags %}
+{% block content %}
+{% include 'components/sidebar2.html' %}
+<div class="notificationsection">
+    <div class="notificationstop">
+        <h1>Notifications</h1>
+        <form action="{% url 'delete_all_notifications' %}" method="post">
+            {% csrf_token %}
+            <button>
+                <i class="fa-solid fa-trash"></i>
+                <h2>Delete all Notifications</h2>
+            </button>
+        </form>
+    </div>
+    <div class="notificationbox">
+        {% for notification in notifications %}
+        <div class="notifictiondiv">
+            <div class="notificationleft">
+                {% if notification.profile_picture_url %}
+                <img src="{{ notification.profile_picture_url }}" alt="Profile Picture">
+                {% else %}
+                <img src="{% static 'images/admin-settings.png' %}" alt="">
+                {% endif %}
+            </div>
+            {% if notification.rejection_reason %}
+            <div class="notificationight">
+                <p> Your {{ notification.appointment_type }}  with Dr. {{ notification.doctor_name }} on {{ notification.appointment_date }} at {{ notification.appointment_time }} has been disapproved due to {{ notification.rejection_reason }}.</p>
+                <p style="font-size:12px;font-weight:900;"><strong>{{notification.created_at}}</strong></p>
+            </div>
+            {% else %}
+            <div class="notificationight">
+                <p> Your {{ notification.appointment_type }} appointment with {{ notification.doctor_name }} on {{ notification.appointment_date }} at {{ notification.appointment_time }} has been approved.</p>
+                <p style="font-size:12px;font-weight:900;"><strong>{{notification.created_at}}</strong></p>
+            </div>
+            {% endif %}
+            <div class="actionnote">
+                {% if notification.message == "Your appointment has been approved." %}
+                <button onclick="openPaymentModal()" class="paymentbutton">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <h2>Complete Payment</h2>
+                </button>
+                {% endif %}
+                {% if not notification.is_read %}
+                <a class="mark" href="{% url 'mark_as_read_user' notification.id %}">Mark as read</a>
+                {% else %}
+                <form action="{% url 'delete_notification' notification.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="deletemessage">
+                        <i class="fa-solid fa-trash"></i>
+                        <h2>Delete</h2>
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p style="font-size:16px;font-weight:800;">There are no notifications currently.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content" style="width:100%;">
+        <span class="close" onclick="closePaymentModal()">&times;</span>
+        <section class="paymentsection">
+            <div class="paymentform">
+                <form action="">
+                    <div class="paymenttop">
+                        <div class="payingmethods">
+                            <h2>Select Payment Method</h2>
+                        </div>
+                        <div class="means">
+                            <a href="">
+                                <img src="{% static 'images/mpesa.jpg' %}" alt="">
+                            </a>
+                            <a href="">
+                                <img src="{% static 'images/visa.jpeg' %}" alt="">
+                            </a>
+                            <a href="">
+                                <img src="{% static 'images/paypal.jpeg' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="paymentbox">
+                        <div class="paymentleft">
+                            <img src="{% static 'images/mpesa.jpg' %}" alt="">
+                            <div class="bacdiv"></div>
+                        </div>
+                        <div class="paymentright">
+                            <div class="paydiv">
+                                <label for="phonenumber">Mpesa Phone Number</label><br>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="paydiv">
+                                <label for="email">Email Address</label><br>
+                                <input type="text" class="input">
+                            </div>
+                            <hr>
+                            <div class="amountdiv">
+                                <div class="amountbox"><h2>Appointment_Type</h2> <h3>Virtual</h3></div>
+                                <div class="amountbox"><h2>Payment_amount</h2> <h3>Kshs. 1,000.00</h3></div>
+                                <div class="amountbox"><h2>Additional Discount</h2> <h3>Kshs. 0</h3></div>
+                                <div class="amountbox"><h2>VAT charges</h2> <h3>Kshs. 0</h3></div>
+                            </div>
+                            <hr>
+                            <div class="amountdiv">
+                                <div class="amountbox"><h2>Total:</h2> <h3>Kshs. 1,000.00</h3></div>
+                            </div>
+                            <div class="paydiv">
+                                <button>Pay Kshs. 1,000.00</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+function openPaymentModal() {
+    document.getElementById("paymentModal").style.display = "block";
+}
+
+function closePaymentModal() {
+    document.getElementById("paymentModal").style.display = "none";
+}
+</script>
+{% endblock %}

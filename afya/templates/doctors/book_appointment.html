@@ -1,0 +1,12 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}Afya axis{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Book</button>
+</form>
+{% endblock %}

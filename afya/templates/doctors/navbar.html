@@ -1,0 +1,18 @@
+{% load static %}
+<div class="topbar">
+    <div class="topbarleft">
+        <form action="">
+            <input type="text" placeholder="Search for events, patiets etc..">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <div class="topbarright">
+        <a href="{% url 'doctor_notifications' %}">
+            <i class="fa-solid fa-bell"></i>
+            <span>{{ unread_notifications_count }}</span>
+        </a>
+        <a href="">
+            <i class="fa-solid fa-gear"></i>
+        </a>
+    </div>
+</div>

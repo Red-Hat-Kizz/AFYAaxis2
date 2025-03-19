@@ -1,0 +1,67 @@
+{%load static%}
+
+<div class="mainright">
+    <div class="profilebox">
+        <div class="profile">
+            <div class="profiletop">
+                <h1>My Profile</h1>
+                <a href="">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </div>
+            <div class="profilemiddle">
+                <div class="profileleft">
+                    {% if user.doctor_profile.profile_picture %}
+                        <img src="{{ user.doctor_profile.profile_picture.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'images/admin-settings.png' %}" alt="">
+                    {% endif %}
+                </div>
+                <div class="profileright">
+                    <h2>Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h2>
+                    <h3>{{ doctor.specialization.name }}</h3>
+                    <div class="location">
+                        <i class="fa-solid fa-map-marker"></i>
+                        <p>Location: Nairobi, Kenya</p>
+                    </div>
+                </div>
+            </div>
+            <div class="profiledetails">
+                <div class="detail">
+                    <h2>Date Birth</h2>
+                    <p>12.07.87</p>
+                </div>
+                <div class="detail">
+                    <h2>Blood</h2>
+                    <p>A+</p>
+                </div>
+                <div class="detail">
+                    <h2>Working Hours</h2>
+                    <p>7pm - 6am</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="completed">
+        <div class="completedtop">
+            <h1>My Completed Appointments</h1>
+            <span>March</span>
+        </div>
+        {%if completed_appointments%}
+        <div class="completedlist">
+            {% for appointment in completed_appointments%}
+            <div class="list">
+                <p>{{appointment.appointment_type}} appointment with {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}on {{appointment.appointment_date}} at {{appointment.appointment_time}}</p>
+            </div>
+            {%empty%}
+                <p>No completed appointments found</p>
+            {%endfor%}
+        {%else%}
+            <p>No completed appointments found</p>
+        {%endif%}
+        </div>
+        <div class="viewall">
+            <a href="">View all completed Appointments</a>
+        </div>
+    </div>
+</div>

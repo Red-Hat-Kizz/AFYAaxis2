@@ -1,0 +1,77 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login To Afya Axis</title>
+    <link rel="stylesheet" href="{% static 'css/forms.css'%}">
+    <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+</head>
+<body>
+    <main>
+        <section class="forms">
+            <form action="." method="POST">
+                {% csrf_token %}
+                <div class="formtop">
+                    <img src="{% static 'images/logo.png' %}" alt="">
+                    <h1>SIGN IN TO AFYA AXIS</h1>
+                </div>
+                <div class="inputdiv">
+                    {{form.username}}
+                </div>
+                <div class="inputdiv">
+                    {{form.password}}
+                </div>
+                <div class="inputdiv">
+                    <input type="checkbox" id="terms">
+                    <label for="check">I confirm that i have read, consent and agree to Afya-Axis <a href="">Terms of use</a> and <a href="">Privacy policy</a></label>
+                </div>
+                {% if form.non_field_errors %}
+                <div class="error-messages">
+                    <ul style="list-style-type:none;">
+                        {% for error in form.non_field_errors %}
+                            <li style="padding:10px;color:red;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        
+            {% if form.errors %}
+                <div class="error-messages">
+                    <ul style="list-style-type:none;">
+                        {% for field, errors in form.errors.items %}
+                            {% if field != '__all__' %}
+                                {% for error in errors %}
+                                    <li style="padding:10px;color:red;">{{ field|title }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+                <div class="inputdiv">
+                    <button>Log in</button>
+                </div>
+                <div class="inputdiv forgot">
+                    <a href="">Forgot password?</a>
+                    <a href="{%url 'register'%}">Sign up</a>
+                </div>
+                <div class="inputdiv">
+                    <div class="orbtn">
+                        <div class="left"></div>
+                        <h1>OR</h1>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="inputdiv">
+                    <a class="google" href="">
+                        <img src="{% static 'images/google.png' %}" alt="">
+                        <h2>Log in with Google</h2>
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

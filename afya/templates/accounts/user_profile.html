@@ -1,0 +1,147 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}User Profile{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<section class="profilepage">
+    <h1>user Profile</h1>
+    <div class="profilebox">
+        <div class="top-profile">
+            <div class="profile-left">
+                {% if profile.profile_picture %}
+                    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+                {% endif %}
+            </div>
+            <div class="profile-right">
+                <h2>Afya ID: </h2>
+                <h3>{{ profile.afya_id }}</h3>
+                <h2>Username: </h2>
+                <h3>{{ user.username }}</h3>
+                <h2>First_name: </h2>
+                <h3>{{ user.first_name }}</h3>
+                <h2>Last_name: </h2>
+                <h3>{{ user.last_name }}</h3>
+                <h2>Full_name: </h2>
+                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+            </div>
+        </div>
+        <div class="personal-details">
+            <h1>Personal Information</h1>
+            <div class="persona">
+                <div class="detail">
+                    <h2>Date_of_Birth: </h2>
+                    <h3>{{ profile.date_of_birth }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>Gender: </h2>
+                    <h3>{{ profile.get_gender_display }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>Phone_number: </h2>
+                    <h3>{{ profile.phone_number }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="health-info">
+            <h1>Health Information</h1>
+            <div class="health">
+                <div class="detail">
+                    <h2>Blood_group: </h2>
+                    <h3>{{ profile.blood_group }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>Height(in cm): </h2>
+                    <h3>{{ profile.height }} cm</h3>
+                </div>
+                <div class="detail">
+                    <h2>Weight (in Kg): </h2>
+                    <h3>{{ profile.weight }} Kg</h3>
+                </div>
+                <div class="detail">
+                    <h2>Allergies</h2>
+                    <ul>
+                        {% for allergy in allergies %}
+                            <li>{{ allergy }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="detail">
+                    <h2>Chronic conditions:</h2>
+                    <ul>
+                        {% for condition in chronic_conditions %}
+                            <li>{{ condition }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="emergency-contact">
+            <h1>Emergency Contact</h1>
+            <div class="emergen">
+                <div class="detail">
+                    <h2>Emergency_contact_name: </h2>
+                    <h3>{{ profile.emergency_contact_name }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>Emergency_contact_phone: </h2>
+                    <h3>{{ profile.emergency_contact_phone }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>Emergency_contact_Relationship: </h2>
+                    <h3>{{ profile.emergency_contact_relationship }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="additional">
+            <h1>Additional Information</h1>
+            <div class="addinfo">
+                <div class="detail">
+                    <h2>Country: </h2>
+                    <h3>{{ profile.country }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>City or County: <h3>{{ profile.city }}</h3></h2>
+                </div>
+                <div class="detail">
+                    <h2>State or Sub-county: </h2>
+                    <h3>{{ profile.state }}</h3>
+                </div>
+                <div class="detail">
+                    <h2>Postal_Code: </h2>
+                    <h3>{{ profile.postal_code }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="prof">
+            <a href="{% url 'edit_profile' %}">Edit profile</a>
+            <a href="{% url 'enter_afya_id' %}">My health Records</a>
+            {% comment %} <a href="{% url 'create_consultation' %}">Create consultation</a> {% endcomment %}
+        </div>
+        
+    </div>
+   </section>
+{% comment %} <div class="card">
+    <div class="card-body">
+        <p><strong>Afya ID:</strong> {{ profile.afya_id }}</p>
+        <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
+        <p><strong>Gender:</strong> {{ profile.get_gender_display }}</p>
+        <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+        <p><strong>Blood Group:</strong> {{ profile.blood_group }}</p>
+        <p><strong>Height:</strong> {{ profile.height }} cm</p>
+        <p><strong>Weight:</strong> {{ profile.weight }} kg</p>
+        <p><strong>Allergies:</strong> {{ profile.allergies }}</p>
+        <p><strong>Chronic Conditions:</strong> {{ profile.chronic_conditions }}</p>
+        <p><strong>Emergency Contact:</strong> {{ profile.emergency_contact_name }} ({{ profile.emergency_contact_relationship }}) - {{ profile.emergency_contact_phone }}</p>
+        <p><strong>Address:</strong> {{ profile.address }}</p>
+        <p><strong>City:</strong> {{ profile.city }}</p>
+        <p><strong>State:</strong> {{ profile.state }}</p>
+        <p><strong>Country:</strong> {{ profile.get_country_display }}</p>
+        <p><strong>Postal Code:</strong> {{ profile.postal_code }}</p>
+        {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid">
+        {% endif %}
+    </div>
+</div>
+<a href="{% url 'edit_profile' %}" class="btn btn-primary mt-3">Edit Profile</a> {% endcomment %}
+{% endblock %}

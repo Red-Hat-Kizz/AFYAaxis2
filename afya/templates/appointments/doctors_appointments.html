@@ -1,0 +1,78 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+{% block content %}
+<div class="mainleft">
+    {% include 'doctors/navbar.html' %}
+    <div class="appointmentsdash" style="background-color:#ffffff;padding:5px;box-shadow:0px 0px 5px rgb(0,0,0,0.2);border-radius:5px;padding-top:0;">
+        <div class="dashbar">
+            <h1>Appointments Dashboard</h1>
+            <div class="appointtable">
+                <h3>Currently Applied Appointments</h3>
+                {% if appointments %}
+                <table>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td>
+                        <td>{{ appointment.appointment_date }}</td>
+                        <td>{{ appointment.appointment_time }}</td>
+                        <td>{{ appointment.get_appointment_type_display }}</td>
+                        <td>
+                            <h2>{{ appointment.status }}</h2>
+                            <span class="status-badge" style="
+                                {% if appointment.status == 'pending' %}
+                                    background-color: #ffd700;
+                                {% elif appointment.status == 'Approved' %}
+                                    background-color: #4CAF50;
+                                {% elif appointment.status == 'Completed' %}
+                                    background-color: #0c8de0;
+                                {% elif appointment.status == 'Cancelled' %}
+                                    background-color: #f44336;
+                                {% endif %}
+                                color: {% if appointment.status == 'pending' %}black{% else %}white{% endif %};
+                                padding: 4px 8px;
+                                border-radius: 4px;
+                            "></span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                    <p>No appointments booked yet.</p>
+                {% endif %}
+            </div>
+        </div>  
+    </div>
+</div>
+{% include 'doctors/dashboardright.html' %}
+{% endblock %}
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\appointments\doctors_appointments.html -->
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments</title>
+    <link rel="stylesheet" href="{% static 'css/doctor.css' %}">
+</head>
+<body>
+    <main>
+        {% include 'doctors/sidebar.html' %}
+        <div style="margin-left:0;" class="mainbar">
+            <div class="main">
+                
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/7540b12065.js" crossorigin="anonymous"></script>
+</body>
+</html> {% endcomment %}
+
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\notifications\doctor_notifications.html -->

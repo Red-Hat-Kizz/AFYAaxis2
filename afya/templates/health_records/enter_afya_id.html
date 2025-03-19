@@ -1,0 +1,10 @@
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>Enter Afya ID</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="afya_id">Afya ID:</label>
+    <input type="text" id="afya_id" name="afya_id" required>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

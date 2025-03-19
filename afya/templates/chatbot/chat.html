@@ -1,0 +1,87 @@
+{% extends 'base/layout.html' %}
+
+{% load static %}
+{% block title %}Health AI{% endblock %}
+{% block content %} 
+{%include 'components/sidebar2.html'%}
+<section class="chatbot">
+    <div class="mainbarnav" id="mainbarnav">
+       <div class="sidenavbar" id="sidenavbar">
+            <div class="chatsboxcontainer">
+                <div class="chatstop">
+                    <div>
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                        <h1>My chats</h1>
+                    </div>
+                    <button class="menu menuclose" id="menuclose"><ion-icon name="close-outline"></ion-icon></button>
+                </div>
+                <div class="mychats">
+                <div class="chat">
+                    <h3>Today</h3>
+                    <a href="">Signs and symptoms of malaria</a>
+                    <a href="">Tuberculosis Infections</a>
+                    <a href="">Cholera prevention</a>
+                    <a href="">HIV testing kits</a>
+                </div>
+                <div class="chat">
+                    <h3>Yesterday</h3>
+                    <a href="">Signs and symptoms of malaria</a>
+                    <a href="">Tuberculosis Infections</a>
+                    <a href="">Cholera prevention</a>
+                    <a href="">HIV testing kits</a>
+                </div>
+                <div class="chat">
+                    <h3>13th January 2025</h3>
+                    <a href="">Signs and symptoms of malaria</a>
+                    <a href="">Tuberculosis Infections</a>
+                    <a href="">Cholera prevention</a>
+                    <a href="">HIV testing kits</a>
+                </div>
+                <div class="chat">
+                    <h3>13th January 2025</h3>
+                    <a href="">Signs and symptoms of malaria</a>
+                    <a href="">Tuberculosis Infections</a>
+                    <a href="">Cholera prevention</a>
+                    <a href="">HIV testing kits</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="chatbody">
+            <div class="chatsbox">
+                <!-- <div class="botmessage">
+                    <div class="bot-message">Hello? <br> How may I help you Today?</div>
+                </div>
+                <div class="userMessage">
+                    <div class="user-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                </div>
+                <div class="botmessage">
+                    <div class="bot-message">
+                        <div class="loading">
+                            <div class="loader"></div>
+                            <div class="loader"></div>
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <form action="">
+                <div class="inputdiv">
+                    <textarea name="user-message" id="user-message" class="userMessage" placeholder="Message Afya Axis Health Assistant" required></textarea>
+                <div class="chatcontrols">
+                    <div class="left">
+                        <input type="file" id="file-input" style="display: none;" accept="image/*, .pdf, .doc, .txt">
+                        <label class="attachment" for="file-input"><ion-icon name="attach-outline"></ion-icon></label>
+                        <button id="audio"><ion-icon name="mic-outline"></ion-icon></button>
+                        <button type="button" id="charts">My Chats</button>
+                    </div>
+                    <div class="right">
+                        <button id="upload"><ion-icon name="arrow-up-outline"></ion-icon></button>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section> 
+{% endblock %}

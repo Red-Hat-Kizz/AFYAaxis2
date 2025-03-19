@@ -1,0 +1,93 @@
+{% extends "admin/admin_Layout.html" %}
+{%load static%}
+{%block content%}
+<div class="contentsleft beneficiaries">
+    <div class="clinicscontainerdiv" style="padding:20px 0">
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="docinput">
+                <label for="">First_name:</label>
+                {{doctor_form.first_name}}
+            </div>
+            <div class="docinput">
+                <label for="">Last_name:</label>
+                {{doctor_form.last_name}}
+            </div>
+            <div class="docinput">
+                <label for="">email:</label>
+                {{doctor_form.email}}
+            </div>
+            <div class="docinput">
+                <label for="">Clinic:</label>
+                {{doctor_form.clinic}}
+            </div>
+            <div class="docinput">
+                <label for="">About Doc:</label>
+                {{doctor_form.bio}}
+            </div>
+            <div class="docinput">
+                <label for="">Profile picure:</label>
+                {{doctor_form.profile_picture}}
+            </div>
+            <div class="docinput">
+                <label for="">Facebook_url:</label>
+                {{doctor_form.facebook}}
+            </div>
+            <div class="docinput">
+                <label for="">Twitter_url:</label>
+                {{doctor_form.twitter}}
+            </div>
+            <div class="docinput">
+                <label for="">Linked_url:</label>
+                {{doctor_form.linkedin}}
+            </div>
+            <div class="docinput">
+                <label for="">Instagram_url:</label>
+                {{doctor_form.instagram}}
+            </div>
+            <div class="docinput">
+                <label for="">Address:</label>
+                {{doctor_form.address}}
+            </div>
+            <div class="docinput">
+                <label for="">Country:</label>
+                {{doctor_form.country}}
+            </div>
+            <div class="docinput">
+                <label for="">City or County:</label>
+                {{doctor_form.state}}
+            </div>
+            <div class="docinput">
+                <label for="">Subcounty:</label>
+                {{doctor_form.city}}
+            </div>
+            <div class="docinput">
+                <label for="">Postal_code:</label>
+                {{doctor_form.postal_code}}
+            </div>
+            <div class="docinput">
+                <label for="">Hire_date:</label>
+                {{doctor_form.hire_date}}
+            </div>
+            <div class="docinput">
+                <label for="">years of experience:</label>
+                {{doctor_form.years_of_experience}}
+            </div>
+            <div class="docinput">
+                <label for="">years of worked at Afya Axis:</label>
+                {{doctor_form.years_worked_at_afyaaxis}}
+            </div>
+            <div class="docinput">
+                <button>Submit</button>
+            </div>
+        </form>
+        {% comment %} <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ doctor_form.as_p }}
+            <button type="submit">Submit</button>
+        </form> {% endcomment %}
+    </div>
+</div>
+{%include 'admin/contentsright.html'%}
+{%endblock%}

@@ -1,0 +1,1389 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --maincolor:#007f3c;
+    --basecolor:#0c8de0;
+}
+body{
+    width: 100%;
+}
+body::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+main{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+main .sidebarleft{
+    width: 20%;
+    
+    background-color: var(--basecolor);
+    height: 100vh;
+    position: fixed;
+    overflow: auto;
+}
+.sidebarheader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--basecolor);
+    padding-top: 50px;
+}
+.sidebarheader .adminimage{
+    width: 150px;
+    height: 150px;
+    
+}
+.sidebarheader .adminimage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    background-color: var(--maincolor);
+}
+.adminname{
+    display: block;
+    padding: 20px;
+    background-color: var(--basecolor);
+}
+.adminname h2{
+    text-align: center;
+    color: azure;
+}
+.sidebarleft .menuitems{
+    width: 100%;
+    padding: 30px 0;
+}
+.logoutdiv a ,
+.sidebarleft .menuitems a{
+    width: 100%;
+    margin-right: 0;
+    position: relative;
+    display: block;
+    color: azure;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+    margin-bottom: 10px;
+    padding: 5px 30px;
+    transition: .5s;
+}
+.sidebarleft .menuitems a:hover{
+    background-color: rgb(255, 255, 255);
+    color: var(--basecolor);
+}
+.sidebarleft .menuitems a:hover i{
+    color: var(--basecolor);
+}
+.logoutdiv a i,
+.sidebarleft .menuitems a i{
+    font-size: 30px;
+    width: 30px;
+    color: azure;
+}
+.logoutdiv{
+    width: 100%;
+    margin-top: 20px;
+}
+.logoutdiv a{
+    display: block;
+    padding: 5px 30px;
+    display:flex;align-items: center;
+    justify-content: left;
+    gap: 20px;
+
+}
+main .mainbarcentre{
+    width: 80%;
+    margin-left: 20%;
+    padding: 0px 30px;
+    position: relative;
+}
+main .mainbarcentre .mainbarhead{
+    width: 76.5%;
+    /* padding: 20px 10px; */
+    padding: 10px 10px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+    background-color: rgb(255, 255, 255);
+}
+main .mainbarcentre .mainbarhead .navleft{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+}
+main .mainbarcentre .mainbarhead .dash{
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--basecolor);
+}
+main .mainbarcentre .mainbarhead .web{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--maincolor);
+}
+main .mainbarcentre .mainbarhead .web i{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 10px;
+    color: var(--maincolor);
+}
+main .mainbarcentre .mainbarhead .navright{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .mainbarcentre .mainbarhead .navright a{
+    margin: 0 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative ;
+}
+main .mainbarcentre .mainbarhead .navright a span{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+main .mainbarcentre .mainbarhead .navright a i{
+    font-size: 20px;
+    color: rgb(196, 194, 194);
+}
+main .mainbarcentre .mainbarhead .navright a img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    
+}
+main .mainbarcentre .mainbarhead .navright form{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+main .mainbarcentre .mainbarhead .navright form input{
+    width: 90%;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid black;
+    
+}
+main .mainbarcentre .mainbarhead .navright form button{
+    width: 10%;
+    cursor: pointer;
+    border: none;
+    background-color: var(--basecolor);
+    padding: 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+main .mainbarcentre .mainbarhead .navright form i{
+    font-size: 25px;
+    color: azure;
+}
+.maincontents{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative;
+    padding-top: 50px;
+}
+.contentsleft{
+    width: 70%;
+}
+
+.middlecontainer{
+    width: 100%;
+    height: 250px;
+}
+.middlecontainer .leftdiv{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 3px;
+    padding: 40px;
+    background-image: url(../images/backimage.png),linear-gradient(to right,#0c8de0,rgb(189, 189, 189));
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.middlecontainer .leftdiv h2{
+    color: azure;
+    margin-bottom: 10px;
+}
+.middlecontainer .leftdiv h1{
+    color: azure;
+    margin-bottom: 30px;
+}
+
+.middlecontainer .leftdiv p{
+    color: azure;
+    margin-top: 30px;
+}
+.middlecontainer .leftdiv hr{
+    border: none;
+    height: 1px;
+    background-color: aqua;
+    background-image: linear-gradient(to right,aqua,rgb(200, 200, 200));
+}
+.contentsright .rightdiv {
+    width: 100%;
+    height: 250px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 3px;
+}
+.newstaff{
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px 20px;
+    margin-top: 20px;
+}
+.newstaff a{
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    transition: .5s;
+    background-color: rgb(12, 141, 224,0.2);
+}
+.newstaff a:hover{
+    background-color: var(--basecolor);
+    color: azure;
+}
+.appointments{
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px 20px;
+    margin-top: 10px;
+}
+.appointments .appdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.1);
+    padding: 5px;
+    height: 70px;
+}
+.appointments .appdiv i{
+    font-size: 40px;
+    color: rgb(194, 196, 197);
+}
+.appointments .appdiv .side h2{
+    color: var(--basecolor);
+    font-size: 18px;
+}
+.appointments .appdiv .side h3{
+    font-size: 16px;
+}
+.appointments .appdiv .side h4{
+    font-size: 18px;
+    color: rgb(172, 175, 177);
+}
+.contentsright{
+    width: 23%;
+    position: fixed;
+    right: 23px;
+    
+}
+.contentsright .docsbox{
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.1);
+    padding: 5px;
+    height: 450px;
+    overflow-y: scroll;
+    position: relative;
+}
+.contentsright .docsbox::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 5px;
+    background-color: rgb(197, 194, 194);
+}
+.contentsright .docsbox::-webkit-scrollbar-thumb{
+    background-color: #0c8de0;
+    border-radius: 5px;
+}
+.contentsright .docsbox .doc{
+    width: 100%;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+.contentsright .docsbox .doc a{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+    padding: 10px;
+    text-decoration: none;
+}
+.contentsright .docsbox .doc a .docpic img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--basecolor);
+    object-fit: cover;
+    object-position: top;
+}
+.contentsright .docsbox .doc a h2{
+    font-size: 20px;
+    color: #0c8de0;
+}
+.contentsright .docsbox .doc a p{
+    font-size: 16px;
+    color: #363737;
+}
+.contentsright .docsbox .doc a .docratings{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+}
+.contentsright .docsbox .doc a .docratings i{
+    font-size: 15px;
+    color: rgb(215, 215, 215);
+}
+.contentsright .docsbox .doc a .docratings i:nth-child(1){
+    color: rgb(255, 240, 27);
+}
+.contentsright .docsbox .doc a .docratings i:nth-child(2){
+    color: rgb(255, 240, 27);
+}
+.contentsright .docsbox .doc a .docratings i:nth-child(3){
+    color: rgb(255, 240, 27);
+}
+.contentsright .docsbox .docbtn{
+    width: 100%;
+    padding: 10px 0px;
+}
+.contentsright .docsbox .docbtn a{
+    text-decoration: none;
+    background-color: var(--basecolor);
+    color: azure;
+    padding: 10px 40px;
+    border-radius: 4px;
+}
+.moredetails{
+    width: 100%;
+    margin-top: 10px;
+}
+.moredetails .more{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+.moredetails .more h1{
+    color: #0c8de0;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.moredetails .morebox{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 10px;
+}
+.moredetails .users{
+    width: 50%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.1);
+    border-radius: 4px;
+    padding: 5px;
+    max-height: 350px;
+    overflow-y: scroll;
+}
+.moredetails .user{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgb(178, 177, 177);
+    border-radius: 4px;
+    padding:5px 10px;
+    margin-bottom: 5px;
+}
+.moredetails .user .userpic{
+    width: 15%;
+}
+.moredetails .user .userpic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid var(--maincolor);
+}
+.moredetails .user .username {
+    width: 70%;
+}
+.moredetails .user .username h2{
+    font-size: 18px;
+    text-align: left;
+   
+}
+.user .options ul{
+    list-style: none;
+}
+.user .options ul li{
+    position: relative;
+}
+.user .options ul li i{
+    font-size: 30px;
+    color: #363737;
+    cursor: pointer;
+}
+.user .options ul li .drop{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.3);
+    border-radius: 3px;
+    padding: 5px;
+    right: -10px;
+    width: 150px;
+    display: none;
+    z-index: 7;
+}
+.user .options ul li .drop li:nth-child(1){
+    margin-bottom: 10px;
+}
+.user .options ul li .drop li a{
+    display: flex;
+    align-items: center;
+    justify-content: left;gap: 10px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 3px;
+    transition: .5s;
+}
+.user .options ul li .drop li a:hover{
+    background-color: var(--basecolor);
+}
+.user .options ul li .drop li a:hover i{
+    color: white;
+}
+.user .options ul li .drop li a:hover h3{
+    color: white;
+}
+
+.user .options ul li .drop li a h3{
+    font-size: 12px;
+    color: #363737;
+    transition: .5s;
+}
+.user .options ul li .drop li a i{
+    font-size: 20px;
+    color: #0c8de0;
+    transition: .5s;
+}
+.user .options ul li:hover .drop{
+    display: block;
+}
+.moredetails .stats{
+    width: 50%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.1);
+    border-radius: 4px;
+    padding: 5px;
+}
+.stats .stat{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-bottom: 5px;
+}
+.stats .stat .statleft{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+}
+.stats .stat .statleft i{
+    color: red;
+    font-size: 30px;
+    width: 40px;
+}
+.stats .stat .statleft .statinfo h2{
+    color: var(--basecolor);
+    font-size: 18px;
+
+}
+.stats .stat .statright h1{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--maincolor);
+    padding: 10px;
+    border-radius: 50%;
+}
+/* clinics======================================================= */
+.clinicscontainerdiv{
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.1);
+    border-radius: 5px;
+}
+.clinicscontainerdiv h1{
+    color: var(--basecolor);
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+.clinicsset{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding-left: 30px;
+    flex-wrap: wrap;
+}
+.clinicdiv{
+    padding: 3px;
+    border-radius: 4px;
+    width: 23%;
+    height: 255px;
+    min-width: 23%;
+    margin-right: 10px;
+    background-color: rgb(213, 213, 213);
+    margin-bottom: 10px;
+}
+.clinicdiv h3{
+    margin-top: 5px;
+    font-size: 20px;
+}
+.clinicdiv .clinicimage{
+    width: 100%;
+    height: 180px
+}
+.clinicdiv img{
+    width: 100%;
+    border-radius: 3px;
+    height: 100%;
+}
+.viewclinic{
+    width: 100%;
+    height: 20%;
+}
+.viewclinic form{
+    width: 100%;
+    margin-top: 5px;
+}
+.viewclinic form button{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    font-size: 17px;
+    color: azure;
+    background-color: var(--basecolor);
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* users============================ */
+.beneficiaries h1{
+    color: #0c8de0;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.beneficiaries .add{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: 5px;
+    
+}
+.beneficiaries .add a{
+    background-color: var(--basecolor);
+    color: azure;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.5);
+}
+.contentsleft .usersdiv{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    /* gap: 5px; */
+    flex-wrap: wrap;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+}
+.usersdiv .user{
+    min-width: 49.8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgb(178, 177, 177);
+    border-radius: 4px;
+    padding:5px 10px;
+    margin-bottom: 5px;
+}
+.usersdiv .user .userpic{
+    width: 15%;
+}
+.usersdiv .user .userpic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid var(--maincolor);
+}
+.usersdiv .user .username {
+    width: 70%;
+}
+.usersdiv .user .username h2{
+    font-size: 16px; 
+}
+/* doctors ======================================== */
+.doctorsdiv{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    gap: 5px;
+    padding: 5px;
+}
+.doctorsdiv .doc{
+    width: 49.5%;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+    padding: 10px;
+    text-decoration: none;
+}
+.doctorsdiv .doc .docpic img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--basecolor);
+    object-fit: cover;
+    object-position: top;
+}
+.doctorsdiv .doc i{
+    font-size: 20px;
+}
+.doctorsdiv .doc i:nth-child(1){
+    color: yellow;
+}
+.doctorsdiv .doc i:nth-child(2){
+    color: yellow;
+}
+.doctorsdiv .doc i:nth-child(3){
+    color: yellow;
+}
+.doctorsdiv .doc form{
+    width: 30%;
+}
+.doctorsdiv form button{
+    width: 100%;
+    padding: 10px;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 4px;
+    color: azure;
+    border: none;
+    background-color: #0c8de0;
+}
+
+/* octor detailspage================================ */
+.docprofile{
+    width: 100%;
+}
+
+.profilecontainer{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.profilecontainer .topside{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+.profilecontainer .topside .imageside{
+    width: 50%;
+    padding-top: 0;
+}
+.profilecontainer .topside .imageside img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+}
+.profilecontainer .topside .detailside{
+    width: 50%;
+    margin-left: 50px;
+}
+.profilecontainer .topside .detailside h1{
+    font-size: 25px;
+    color: #0c8de0;
+    font-weight: 900;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.profilecontainer .topside .detailside h2{
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #000000;
+}
+.profilecontainer .topside .detailside h2 span{
+    color: #0c8de0;
+    font-size: 16px;
+}
+.profilecontainer .topside .detailside .linksbox {
+    width: 100%;
+    margin-top: 20px;
+}
+.profilecontainer .topside .detailside .linksbox h1{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+.profilecontainer .topside .detailside .linksbox .links{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    gap: 30px;
+}
+.profilecontainer .topside .detailside .linksbox .links ion-icon{
+    font-size: 30px;
+}
+.twitter,
+.facebook,
+.linkedin{
+    fill: #0c8de0;
+}
+.whatsapp{
+    fill: #08bf5e;
+}
+.profession{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profession h4{
+    font-size: 25px;
+    color: #0c8de0;
+    margin-bottom: 10px;
+}
+.docprofile .profession h2{
+    font-size: 16px;
+    color: #0c8de0;
+    margin-bottom: 5px;
+}
+.ratings .rates ion-icon{
+    font-size: 35px;
+}
+.ratings .rates .rate:nth-child(1),
+.ratings .rates .rate:nth-child(2),
+.ratings .rates .rate:nth-child(3){
+    fill: rgb(247, 247, 36);
+}
+.middle{
+    width: 100%;
+  
+    padding: 20px;
+}
+.middle .residential{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+.middle .residential h1{
+    color:#0c8de0;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+.middle .residential h2{
+    color:#0c8de0;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.middle .residential .residentialdetail{
+    width: 40%;
+}
+.middle .residential h2 span{
+    color:#000000;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.middle .aboutdoc{
+    width: 60%;
+}
+.reviews{
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+}
+.reviews h1{
+    color: #0c8de0;
+    font-size: 30px;
+    
+}
+.reviews .reviewcards{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    gap: 5px;
+}
+.reviews .reviewcards::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.reviews .reviewcards::-webkit-scrollbar-thumb{
+    width: 0;
+    height: 0;
+    background-color: transparent;
+}
+.reviewcards .card{
+    min-width: 30%;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.5);
+    padding: 5px;
+    height: 400px;
+}
+.reviewcards .card .patientimage{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+.reviewcards .card .patientimage img{
+    width: 100%;
+    height: 100%;
+    object-position: top;
+    object-fit: cover;
+}
+.reviewcards .card h2{
+    color: #007f3c;
+    margin-top: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.reviewcards .card p{
+    font-size: 14px;
+}
+.reviewcards .card .day{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.reviewcards .card .day ion-icon{
+    color: #0c8de0;
+}
+.reviewcards .card .day h2{
+    font-size: 14px;
+}
+
+
+/* doctor registration form ================================ */
+.regform{
+    width: 100%;
+    padding-top: 20px;
+}
+.doctorsform{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+.doctorsform .top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.doctorsform .top img{
+    width: 130px;
+}
+.doctorsform .top h1{
+    font-size: 50px;
+    color: #007f3c;
+}
+.doctorsform form{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+}
+.doctorsform form .inputcontainer{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.doctorsform form .inputcontainer input{
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.doctorsform form label{
+    font-size: 20px;
+    color: #0c8de0;
+}
+.doctorsform form .inputcontainer textarea{
+    width: 100%;
+    height: 140px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.doctorsform form .inputcontainer .select{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 50px;
+}
+.doctorsform form .inputcontainer .select input{
+    display: none;
+}
+.doctorsform form .inputcontainer .select img{
+    width: 40px;
+}
+.inputcontainer button{
+    width: 100%;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007f3c;
+}
+/* clinic form========================================================= */
+.clinicform{
+    width: 100%;
+}
+.clinicform form{
+    width: 100%;
+    padding: 10px 20px;
+}
+.clinicform form .topform{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.clinicform form .topform img{
+    width: 90px;
+}
+.clinicform form .topform h1{
+    color: #007f3c;
+}
+.clinicform form .inputcontrol{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.clinicform form .inputcontrol .form_control{
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #000000;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.clinicform form .inputcontrol .form_textarea{
+    width: 100%;
+    padding: 7px;
+    height: 100px;
+    max-height: 100px;
+    border-radius: 3px;
+    color: #000000;
+    font-size: 16px;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.clinicform form .control{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+}
+.clinicform form .control img{
+    width: 40px;
+}
+.clinicform form .control label{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.clinicform form .control .form_control{
+    width: 75%;
+}
+.clinicform form .control2 .check{
+    margin-bottom: 10px;
+}
+.clinicform form .control2 h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.clinicform form .control2 .form_service{
+    
+    background-color: red;
+}
+
+.clinicform form .inputcontrol label{
+    color: #0c8de0;
+    font-size: 18px;
+}
+.clinicform form .inputbutton{
+    width: 100%;
+    margin-top: 20px;
+}
+.clinicform form .inputbutton button{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #0c8de0;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: 24px;
+    border-radius: 3px;
+    border: none;
+}
+.appointmentsdash{
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 50px;
+}.dashbar{
+    width: 100%;
+}
+.dashbar h1{
+    color: #0c8de0;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.appointtable{
+    width: 100%;
+}
+.appointtable h3{
+    font-size:20px;
+    margin-bottom: 10px;
+}
+.appointtable table{
+    width: 100%;
+    border: 1px solid #0c8de0;
+}
+.appointtable table th{
+    border: 1px solid #0c8de0;
+    background-color: #0c8de0;
+    padding: 5px;
+    text-align: left;
+}
+.appointtable table td{
+    border: 1px solid #0c8de0;
+    padding: 5px;
+    position: relative;
+}
+.appointtable table td h2{
+    font-weight: 400;
+    font-size: 18px;
+}
+.appointtable table td span{
+    width: 15px;
+    position: absolute;
+    height: 15px;
+    background-color: red;
+    border-radius: 3px;
+    right: 10px;
+    top: 10px;
+}
+.busy{
+    width: 100%;
+    margin-top: 10px;
+    
+}
+.busy h1{
+    font-size: 20px;
+}
+.busy .busybox{
+    width:100% ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.busy .busybox .busydiv{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
+    
+    border: 1px solid #0c8de0;
+}
+.busy .busybox .boxes{
+    width: 50%;
+}
+.busy .busybox .busydocs{
+    width: 100%;
+    border: 1px solid #000000;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.busy .busybox .busydiv .busyleft img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+/* notifications ======================================== */
+.notifications{
+    width: 100%;
+}
+.notifications h1{
+    color: #0c8de0;
+    text-transform: capitalize;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.notbox{
+    width: 98%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 4px;
+    padding: 5px;
+}
+.notbox .notification{
+    width: 100%;
+    border: 1px solid #0c8de0;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+.notbox .notification a{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px ;
+    text-decoration: none;
+}
+.notification img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* notifications============= */
+.notificationsection{
+    width: 100%;
+}
+.notificationsection h1{
+    color: var(--blue);
+}
+.notificationbox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+}
+.notifictiondiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.notificationleft img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;object-position: top;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+}
+.actionnote{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.notificationight{
+    width: 70%;
+}
+.notificationstop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.notificationstop h2{
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.notificationstop i{
+    color: #064ca9;
+    font-size: 20px;
+}
+.actionnote .mark,
+.actionnote .paymentbutton,
+.notificationstop form button,
+.actionnote form button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    border-radius: 4px;
+    gap: 5px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+}
+.actionnote .mark,
+.actionnote .paymentbutton h2,
+.actionnote form button h2{
+    font-size: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.actionnote .mark{
+    background-color: #0c8de0;
+}
+.actionnote .paymentbutton{
+    background-color: #007f3c;
+}
+.actionnote form .paymentbutton i{
+    color: brown;
+}
+.notificationstop button,
+.actionnote form .deletemessage{
+    background-color: #e30000;
+}
+.actionnote form .deletemessage i{
+    color: #064ca9;
+}
+
+/* doctorform=========================== */
+.doctorform{
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    padding: 10px;
+}
+.doctorform form {
+    width: 100%;
+}
+.doctorform form .docinput{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.doctorform form .docinput .form-controltext,
+.doctorform form .docinput .form-control{
+    width: 100%;
+    font-size: 16px;
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+.doctorform form .docinput .form-controltext{
+    max-height: 100px;
+    height: 100px;
+}
+.doctorform form .docinput button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #0c8de0;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;   
+}
+.doctorform form .docinput label{
+    color: #0c8de0;
+}

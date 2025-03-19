@@ -1,0 +1,1279 @@
+@media (max-width: 768px){
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    main{
+        width: 100%;
+        position: relative;
+    }
+    body{
+        width: 100%;
+        overflow: hidden;
+        background-color: #ffffff;
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar{
+        width: 0;
+    }
+    .maintopresponsive{
+        width: 100%;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        background-color: #0c8de0;
+        position: fixed;
+        z-index: 10;
+    }
+    .maintopresponsive img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .profilerepo{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        gap: 10px;
+    }
+    .searchrepo a i{
+        font-size: 20px;
+        color: #ffffff;
+    }
+    .userbox a{
+        display: flex;
+        text-decoration: none;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .userbox a h2{
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .siderepotop button,
+    .sliderepo button{
+        border: none;
+        padding: 3px;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;width: 30px;
+    }
+    .siderepotop button i,
+    .sliderepo button i{
+        font-size: 25px;
+        border-radius: 3px;
+    }
+    .logorepo{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+    }
+    .logorepo a img{
+        width: 30px;
+        height: 30px;
+    }
+    .sliderepo{
+        position: relative;
+    }
+    .sidebarrepo{
+        position: fixed;
+        width: 70%;
+        background-color: rgb(255, 255, 255);
+        z-index: 10;
+        background-color: #007f3c;
+        right: -100%;
+        top: 0;
+        transition: .5s ease-in-out;
+        height: 100vh;
+    }
+    .siderepotop{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 5px;
+    }
+    .sidebarrepo .middlebox{
+        margin-top: 40px;
+    }
+    .sidebarrepo ul{
+        list-style-type: none;
+    }
+    .sidebarrepo ul li a{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+        text-decoration: none;
+        padding: 5px 10px;
+        position: relative;
+    }
+    .sidebarrepo ul li a h2{
+        font-size: 16px;
+        color: beige;
+    }
+    .sidebarrepo ul li a i{
+        color: #ffffff;
+    }
+    .sidebarrepo ul li a .dropdown-icon{
+        transform: rotate(-90deg);
+        position: absolute;
+        right: 10px;
+    }
+    .sidebarrepo ul li .submenu{
+        width: 100%;
+        background-color: rgb(2, 53, 21);
+        position: relative;
+        max-height: 0; /* Start with max-height 0 */
+        overflow: hidden; /* Hide overflow */
+        opacity: 0; /* Start fully transparent */
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+    }
+    /* .sidebarrepo ul li:hover .submenu{
+        display: block;
+    } */
+    .sidebarrepo ul li .submenu li a h2{
+        font-size: 12px;
+    }
+    .sidebarrepo ul li .submenu li a{
+        padding-left: 40px;
+    }
+    .sidebarrepo ul li .submenu li a i{
+        font-size: 18px;
+    }
+    .sidebarrepo{
+        display: block;
+    }
+
+
+
+
+
+    .maintop{
+        display: none;
+    }
+    .mainbar{
+        width: 100%;
+        margin-left: 0%;
+    }
+    .search form input{
+        width: 100%;
+        padding:8px 10px;
+        border-radius: 20px;
+        border: none;
+        color: #000000;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px;
+        transition: .5s ease-in-out;
+    }
+    .maintop .menus{
+        width: 10%;
+        padding: 0px;
+        display: flex;
+        align-items: center;justify-content: right;
+        gap: 0px;
+        z-index: 10;
+    }
+    .menus .signs{
+        display: none;
+    }
+    .bodycontent{
+        width: 100%;
+        display:block;
+    }
+    .sidebar{
+        display: none;
+    }
+    .maincontents{
+        width: 100%;
+        margin-left: 0%;
+    }
+    .maintop{
+        width: 100%;
+        height: 50px;
+    }
+    .main{
+        width: 100%;
+        padding:55px 5px;
+    }
+    .herobar .herobox .hero{
+        width: 100%;
+        height: 250px;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 0px;
+        background-color: #007f3c;
+    }
+    
+    .lefthero h1{
+        margin-top: 0px;
+        font-size: 10px;
+        margin-bottom: 5px;
+        color: #ffffff;
+    }
+    .lefthero li{
+        margin-bottom: 0px;
+        font-size: 9px;
+        font-weight: 900;
+        color: rgb(0, 0, 0);
+    }
+    .lefthero p{
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+    .lefthero ul li span{
+        font-size: 10px;
+        color: #0c8de0;
+    }
+    .lefthero h2{
+        color: #0c8de0;
+        font-size: 10px;
+    }
+    .lefthero ul{
+        list-style-type: none;
+        padding-left: 0px;
+    }
+    .righthero{
+        width: 100%;
+        padding: 5px;
+        height: 100%;
+    }
+    .lefthero{
+        width: 100%;
+        padding: 5px;
+        height: 100%;
+    }
+    .righthero img{
+        width: 100%;
+    }
+    .slide{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .slide1{
+        background-image: url(../images/backimage.png); 
+    }
+    .slide2{
+        background-image: url(../images/appoint.png);
+    }
+    .slide3{
+        background-image: url(../images/review.png);
+    }
+    .slide4{
+        background-image: url(../images/emrgency.png);
+    }
+    .slide11{
+        display: none;
+    }
+    .container{
+        width: 100%;
+        margin-top: 20px;
+        box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+        display: block;
+        gap: 0px;
+    }
+    .container1{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 20px;
+        gap: 30px;
+        border-radius: 5px;
+        background-color: rgb(241, 239, 239);
+        margin-bottom: 10px;
+    }
+    .container1 p{
+        font-size: 12px;
+    }
+    .doctop h1{
+        color: var(--green);
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    .doctop a{
+        text-decoration: none;
+        color: var(--blue);font-weight: 900;
+        font-size: 16px;
+    }
+    .doctorslist{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 10px;
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+    .docbox{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .doctor{
+        min-width: 50%;
+        border-radius: 5px;
+        height: 205px;
+        background-color: rgb(241, 239, 239);
+        position: relative;
+        padding: 5px;
+    }
+    .doctor img{
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        object-position: top;
+    }
+    .doctor h2{
+        color: var(--blue);
+        font-size: 16px;
+    }
+    .doctor h3{
+        color: var(--green);
+        font-size: 12px;
+    }
+    .appointments h1{
+        color: var(--green);
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .appointments .intro{
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .appointments .app{
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    .appointments ul li{
+        color: #0c8de0;
+        font-size: 14px;
+    }
+    .appointments ul li ul{
+        margin-left: 70px;
+        margin-top: 12px;
+    }
+    .paymentcards{
+        margin-top: 20px;
+        width: 100%;
+        display: block;
+        align-items: center;
+        justify-content:space-between;
+        gap: 10px;
+    }
+    .appointments .intro{
+        margin-bottom: 20px;
+        font-size: 11px;
+        text-align: justify;
+    }
+    .appointments .app{
+        margin-bottom: 10px;
+        font-size: 11px;
+        text-align: justify;
+    }
+    .paymentcards .card{
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+        padding: 20px;
+        height: 400px;
+        transition: .5s;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+    .paymentcards .card .cardimg{
+        width: 100%;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .paymentcards .card:hover{
+        transform: rotateY(0deg);
+        /* display: none; */
+    }
+    .paymentcards .card h2{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .paymentcards .card p{
+        font-size: 12px;
+    }
+    .paybox .method{
+        background-color: antiquewhite;
+        height: 50px;
+        width: 30%;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .payment h2{
+        color: #0c8de0;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .services{
+        width: 100%;
+        margin-top: 40px;
+    }
+    .services h1{
+        font-size: 18px;
+        color: #007f3c;
+        margin-bottom: 20px;
+    }
+    .services h2{
+        font-size: 14px;
+    }
+    
+    .servicebox{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 20px;
+    }
+    .servicebox .service{
+        width: 49%;
+        min-width: 24%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+        padding: 10px;
+        height: 300px;
+    }
+    .servicebox .service .servebanner{
+        width: 100%;
+        height: 150px;
+    }
+    .servicebox .service h2{
+        color: #0c8de0;
+        font-size: 14px;
+    }
+    .servicebox .service p{
+        font-size: 10px;
+    }
+    .faqs{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .faqs h2{
+        color: #007f3c;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: 900;
+    }
+    .faqsdiv{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 3px;
+        
+    }
+    .faq-item{
+        width: 100%;
+        margin-bottom: 0px;
+        border-bottom: 1px solid black;
+        padding: 10px;
+    }
+    .faq-item h3{
+        font-size: 12px;
+    }
+    .faq-item p{
+        font-size: 10px;
+    }
+    footer{
+        width: 100%;
+        background-color: rgb(43, 43, 43);
+        margin-left: 0%;
+        padding: 5px;
+    }
+    .footerdivs{
+        width: 100%;
+        padding: 20px;
+        display:block;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    .footerdivs h2{
+        color: #060706;
+        font-size: 16px;
+    }
+    .foter a{
+        display: block;
+        padding:4px 6px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #ffffff;
+        margin-left: 12px;
+    }
+    footer form{
+        width: 100%;
+    }
+    footer form button{
+        padding: 10px;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 900;
+        background-color: rgb(139, 139, 139);
+    }
+    /* doctor profie */
+    .profilecontainer .topside{
+        width: 100%;
+        display: block;
+        align-items: top;
+        justify-content: space-between;
+        padding-top: 50px;
+    }
+    .profilecontainer .topside .imageside{
+        width: 100%;
+        padding: 0px;
+        padding-top: 0;
+    }
+    .profilecontainer .topside .imageside img{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 5px;
+    }
+    .profilecontainer .topside .detailside{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .profilecontainer .topside .detailside h1{
+        font-size: 20px;
+        color: #0c8de0;
+        font-weight: 900;
+        margin-bottom: 10px;
+    }
+    .profilecontainer .topside .detailside h2{
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #000000;
+    }
+    .profilecontainer .topside .detailside .linksbox h1{
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        font-size: 25px;
+    }
+    .profilecontainer .topside .detailside .linksbox .links ion-icon{
+        font-size: 20px;
+    }
+    .profession h4{
+        font-size: 20px;
+        color: #0c8de0;
+        margin-bottom: 10px;
+    }
+    .profession h2{
+        font-size: 16px;
+        color: #0c8de0;
+        margin-bottom: 10px;
+    }
+    .middle{
+        width: 100%;
+        padding: 10px;
+    }
+    .middle .residential{
+        width: 100%;
+        display: block;
+        align-items: top;
+        justify-content: space-between;
+    }
+    .middle .residential .residentialdetail{
+        width: 100%;
+    }
+    .middle .residential h1{
+        color:#0c8de0;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }    
+    .middle .residential h2{
+        color:#0c8de0;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    .middle .aboutdoc{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .reviews{
+        width: 100%;
+        margin-top: 30px;
+        padding: 5px;
+        overflow: scroll;
+    }
+    .reviews h1{
+        color: #0c8de0;
+        font-size: 20px;
+    }
+    .reviews .reviewcards{
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: scroll;
+        gap: 5px;
+        height: 280px;
+        background-color: rgb(213, 213, 213);
+        padding: 5px;
+    }
+    .reviewcards .card{
+        width: 50%;
+        min-width: 50%;
+        border-radius: 3px;
+        box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+        padding: 0px;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+    .reviewcards .card .patientimage{
+        width: 100%;
+        height: 140px;
+        background-color: white;
+    }
+    .reviewcards .card h2{
+        color: #007f3c;
+        padding:0 4px;
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .reviewcards .card p{
+        font-size: 10px;
+        padding: 0 4px;
+    }
+    .reviewcards .card .day{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0px;
+    }
+    .reviewcards .card .day h2{
+        font-size: 10px;
+    }
+    /* clinic list===================================================== */
+    .clinicsbox{
+        width: 100%;
+        display: block;
+        padding: 5px;
+    }
+    .clinic_lists h1{
+        color: #007f3c;
+        font-size: 30px;
+        margin: 5px 0;
+        text-align: center;
+    }
+    .clinic_div{
+        width: 100%;
+        margin-bottom: 10px;
+        cursor: pointer;
+        height: 310px;
+        box-shadow: 0px 0px 5px rgb(0, 0, 0,0.3);
+        padding: 2px;
+        border-radius: 4px;
+        
+    }
+    /* clinic details */
+    .lefttop span{
+        background-color: #09c460;
+        padding: 7px 10px;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+    }
+    .lefttop h2{
+        font-size: 14px;
+    }
+    .cliniclogo img{
+        width: 40px;
+    }
+    .cliniclogo h1{
+        font-size: 25px;
+        text-transform: capitalize;
+        color: #0c8de0;
+    }
+    .clinicimages{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 200px;
+    }
+    .clinic-detailsbox h1{
+        color: #007f3c;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .clinic-detailsbox{
+        width: 100%;
+        display: block;
+        align-items: top;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .aboutclinic,
+    .addresspic{
+        width: 100%;
+    }
+    .aboutclinic p{
+        font-size: 12px;
+        text-align: justify;
+    }
+    .opening{
+        width: 100%;
+        display: block;
+        align-items: top;
+        justify-content: space-between;
+    }
+    .clinic-services{
+        width: 100%;
+    }
+    .clinic-services ul li{
+        font-size: 13px;
+    }
+    .openat ul li{
+        font-size: 13px;
+    }
+    .addresspic h1{
+        margin-top: 10px;
+    }
+    .addresspic img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: top;
+    }
+    .clinc-doctorsbox{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+    .clinic-doctor{
+        /* width: 25%; */
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgb(0, 0, 0,0.2);
+        height: 250px;
+        padding: 5px;
+    }
+    .clinic-doctor h2{
+        margin-top: 5px;
+        color: #007f3c;
+        font-size: 14px;
+    }
+    .clinic-doctor form button{
+        width: 100%;
+        cursor: pointer;
+        padding: 8px;
+        background-color: #0c8de0;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        font-size: 16px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    /* appointmentform */
+    .appointment-form{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: unset;
+    }
+    .appointment-form form{
+        width: 100%;
+        padding-bottom: 40px;
+    }
+    .formtop h1{
+        font-size: 20px;
+        text-transform:capitalize;
+        font-weight: 900;
+        color: #007f3c;
+    }
+    .formtop img{
+        width: 70px;
+    }
+    .inputcontainer button{
+        width: 100%;
+        cursor: pointer;
+    }
+    .appointment-form form label{
+        color: #0c8de0;
+    }
+    /* profile page============= */
+    .profilepage .profilebox{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    .top-profile{
+        width: 100%;
+        display:block;
+        align-items: top;
+        justify-content: left;
+        gap: 10px;
+    }
+    .profile-left{
+        width: 100%;
+    }
+    .profile-left img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: top;
+    }
+    .profile-right {
+        width: 100%;
+    }
+    .detail h2,
+    .profile-right h2{
+        font-size: 14px;
+        background-color: rgb(200, 200, 200);
+        padding: 5px;
+        border-top: transparent;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .detail h3,
+    .profile-right h3{
+        font-weight: 500;
+        color: #9a9a9a;
+        font-size: 12px;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    .additional h1,
+    .emergency-contact h1,
+    .health-info h1,
+    .personal-details h1{
+        text-align: left;
+        font-size: 17px;
+        color: #0c8de0;
+        margin-bottom: 10px;
+    }
+    .addinfo,
+    .emergen,
+    .health,
+    .persona{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    .emergen,
+    .health{
+        display: block;
+    }
+    /* profile update form============================== */
+    .updateform form{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    .updateform form .inputboxes{
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 0px;
+    }
+    .updateform form .inputboxes label{
+        text-transform: capitalize;
+        color: #0c8de0;
+        font-size: 16px;
+    }.form-controltext,
+    .updateform form .inputboxes .form-control{
+        width: 100%;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: 'Times New Roman', Times, serif;
+        border: none;
+        border: 1px solid grey;
+        padding: 5px 10px;
+    }
+    /* chatbot ============================================================ */
+    .mainbarnav .chatbody{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        height: 90vh;
+        position: relative;
+    }
+    .mainbarnav .chatbody .chatsbox{
+        width: 100%;
+        height: 68vh;
+        overflow-y: scroll;
+    }
+    .mainbarnav .chatbody .chatsbox .botmessage .bot-message{
+        background-color: rgb(71, 71, 68,0.8);
+        max-width: 90%;
+        border-radius: 5px;
+        padding: 5px;
+        border-bottom-left-radius: 0;
+        font-size: 12px;
+    }
+    .mainbarnav .chatbody .chatsbox .userMessage .user-message{
+        max-width: 80%;
+        background-color: rgb(128, 128, 128,0.3);
+        padding: 5px;
+        border-radius: 5px;
+        border-bottom-right-radius: 0;
+        font-size: 12px;
+    }
+    .chatbody form .inputdiv{
+        width: 100%;
+        border-radius: 10px;
+        background-color: rgb(210, 210, 210);
+        position: relative;
+    }
+    .chatbody form textarea{
+        width: 100%;
+        font-family:'Times New Roman', Times, serif;
+        border-radius:inherit;
+        max-height: 60px;
+        height: 60px;
+        border: none;
+        background-color: transparent;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    .chatbody form .inputdiv .chatcontrols label,
+    .chatbody form .inputdiv .chatcontrols button{
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        display: flex;
+        transition: .5s;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(153, 153, 153);
+    }
+    .chatbody form .inputdiv .chatcontrols .left #charts{
+        width: unset;
+        color: rgb(0, 0, 0);
+        margin-left: 20px;
+        padding: 0 10px;
+        font-family: tim;
+        font-size: 16px;
+        font-weight:900;
+    }
+    .bot-message .loading .loader{
+        width: 5px;
+        height: 5px;
+        background-color: #000000;
+        border-radius: 50%;
+        animation-name: loading;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-direction: normal;
+    }
+    .mainbarnav .sidenavbar{
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        border-radius: 10px;
+        width: 100%;
+        height: 68vh;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.3);
+        padding: 10px;
+        transform: scale(0);
+        transition: .5s;
+    }
+    .sidenavbar .chatsboxcontainer{
+        max-height: 65vh;
+    
+    }
+    .sidenavbar .chatsboxcontainer .chat h3{
+        color: #000000;
+        font-weight: 900;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .sidenavbar .chatsboxcontainer .chat a{
+        color: #8e8e8e;
+        font-weight: 900;
+        padding: 5px;
+        padding-left: 10px;
+        display: block;
+        font-size: 14px;
+       
+    }
+    
+
+    
+    /* notifications */
+    .notificationsection h1{
+        color: var(--blue);
+        font-size: 18px;
+    }
+    .notificationbox{
+        width: 100%;
+        display: block;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 10px;
+        padding: 10px;
+        box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    }
+    .notifictiondiv{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+   
+    .notificationleft img{
+        width: 25px;
+        height: 25px;
+        object-fit: cover;object-position: top;
+        border-radius: 50%;
+        border: 2px solid var(--green);
+    }
+    .notificationight p{
+        font-size: 12px;
+        text-align: center;
+    }
+    .notificationstop{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+    .notificationstop h2{
+        color: #ffffff;
+        font-size: 12px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .notificationstop i{
+        color: #064ca9;
+        font-size: 14px;
+    }
+    .actionnote form button h2{
+        font-size: 7px;
+        color: #ffffff;
+    }
+    .actionnote form .deletemessage h2{
+        background-color: #e30000;
+        display: none;
+    }
+    .notificationstop form button,
+    .actionnote form button{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        border-radius: 3px;
+        gap: 5px;
+        cursor: pointer;
+        border: none;
+        height: 25px;
+    }
+    /* payment================================================= */
+    .paymentsection{
+        width: 100%;
+        height: unset;
+        min-height: unset;
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+    .paymentform{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        box-shadow: unset;
+    }
+    .paymentform form{
+        width: 100%;
+        background-color:unset;
+        padding:  10px;
+    }
+    .means{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .paymenttop{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 0px;
+    
+    }
+    .paymenttop h2{
+        font-size: 12px;
+    }
+    .means a{
+        width: 33%;
+        padding: 4px;
+    }
+    .means img{
+        border-radius: 4px;
+        width: 100%;
+        height: 30px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .paymentbox{
+        width: 100%;
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    .paymentleft{
+        width: 100%;
+        height: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        display: none;
+    }
+    .paymentleft img{
+        width: 70%;
+        height: 150px;
+        transform: skew(10deg);
+        border-radius: 20px;
+        z-index: 10;
+        box-shadow: 5px 5px 20px 10px rgba(46, 13, 13, 0.4);   
+    }
+    .bacdiv{
+        width:70%;
+        height: 150px;
+        background-color: #07c760;
+        position: absolute;
+        transform: skew(10deg);
+        border-radius: 20px;
+        z-index: 5;
+        bottom: -15px;
+        right: 20px;
+    }
+    .paymentright{
+        margin-top: 10px;
+        width: 100%;
+        padding: 0px;
+        padding-left: 0px;
+    }
+    .paydiv{
+        width: 100%;
+        align-items: center;
+        padding: 0px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        background-color: rgb(255, 255, 255);
+    }
+    .paydiv .input{
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: 12px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .amountbox h2{
+        font-size: 14px;
+        font-weight: 900;
+    }
+    .amountbox h3{
+        font-size: 12px;
+        font-weight: 900;
+        color: #0c8de0;
+    }
+    /* search results ================================== */
+    .results .resultsdiv .resultstop p{
+        font-size: 16px;
+        text-align: center;
+    }
+    .resultsontainer p{
+        font-size: 16px;
+    }
+    .resultsontainer2 .doctorsresult{
+        width: 100%;
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap:0px 0px;
+    }
+    .resultsontainer2 .doctorsresult .doctorinfo{
+        width: 100;
+        max-width: 100;
+        border: 1px solid #000000;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .resultsontainer2 .doctors h1{
+        color: #0c8de0;
+        margin-bottom: 5px;
+        text-align: left;
+        font-size: 14px;
+    }
+    .resultsontainer2 .doctorsresult .doctorinfo a .imageside{
+        width: 20%;
+        height: 70px;  
+    }
+    .doctorinfo a .imageside img{
+        width: 70px;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 50%;
+        border: 2px solid #0c8de0;
+    }
+    .doctorinfo a .detailsside h2{
+        color: #007f3c;
+        font-size: 14px;
+    }
+    .doctorinfo a .detailsside ul li a{
+        text-decoration: none;
+        color: #060706;
+        font-size: 12px;
+    }
+    .doctorinfo a .detailsside h3{
+        color: #000000;
+        font-size: 11px;
+    }
+    .doctorinfo a .detailsside h3 span{
+        color: #0c8de0;
+        font-size: 12px;
+    }
+
+
+
+    
+
+
+}   

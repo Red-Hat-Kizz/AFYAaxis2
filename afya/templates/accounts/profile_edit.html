@@ -1,0 +1,173 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}User Profile{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<h1>Profile update</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="inputboxes">
+            <label for="">Username:</label><br>
+            {{form.username}}
+            {% comment %} <input type="text" class="form-control"> {% endcomment %}
+        </div>
+        <div class="inputboxes">
+            <label for="">First_Name:</label><br>
+            {{form.first_name}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Last_Name:</label><br>
+            {{form.last_name}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Profile_picture:</label><br>
+            {{form.profile_picture}}
+        </div>
+        <h2>Personal Information</h2>
+        <div class="inputboxes">
+            <label for="">Date_of_Birth:</label><br>
+            {{form.date_of_birth}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Gender:</label><br>
+            {{form.gender}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Phone_Number:</label><br>
+            {{form.phone_number}}
+        </div>
+        <h2>Health Information</h2>
+        <div class="inputboxes">
+            <label for="">Blood_Group</label><br>
+            {{form.blood_group}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Height_in_cm:</label><br>
+            {{form.height}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Weight_in_kg:</label><br>
+            {{form.weight}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Allergies:</label><br>
+            {{form.allergies}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Chronic conditions:</label><br>
+            {{form.chronic_conditions}}
+        </div>
+        <h2>Emergency Contact:</h2>
+        <div class="inputboxes">
+            <label for="">Emergency_contact_name:</label><br>
+            {{form.emergency_contact_name}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Emergency_contact_Phone Number:</label><br>
+            {{form.emergency_contact_phone}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Emergency_contact_relationship:</label><br>
+            {{form.emergency_contact_relationship}}
+        </div>
+        <h2>Additional Info</h2>
+        <div class="inputboxes">
+            <label for="">Country:</label><br>
+            {{form.country}}
+        </div>
+        <div class="inputboxes">
+            <label for="">City or County:</label><br>
+            {{form.state}}
+        </div>
+        <div class="inputboxes">
+            <label for="">State or sub-county:</label><br>
+            {{form.city}}
+        </div>
+        <div class="inputboxes">
+            <label for="">City or County:</label><br>
+            {{form.postal_code}}
+        </div>
+        <div class="inputboxes">
+            <label for="">Address:</label><br>
+            {{form.address}}
+        </div>
+        <div class="inputboxes">
+            <button>Save</button>
+        </div>
+    </form>
+    {% comment %} {{ form.as_p }} {% endcomment %}
+    {% comment %} <button type="submit" class="btn btn-primary">Save</button> {% endcomment %}
+</form>
+
+{% comment %} <script>
+    // Pass data from Django to JavaScript
+    const STATES_US = {{ STATES_US|safe }};
+    const STATES_KE = {{ STATES_KE|safe }};
+    const STATES_KW = {{ STATES_KW|safe }};
+    const CITIES_US = {{ CITIES_US|safe }};
+    const CITIES_KE = {{ CITIES_KE|safe }};
+    const CITIES_KW = {{ CITIES_KW|safe }};
+
+    // Get initial values from the form
+    const initialCountry = "{{ form.instance.country|default:'' }}";
+    const initialState = "{{ form.instance.state|default:'' }}";
+    const initialCity = "{{ form.instance.city|default:'' }}";
+
+    // Function to populate states
+    function populateStates() {
+        const country = document.getElementById('country').value;
+        const stateField = document.getElementById('state');
+        stateField.innerHTML = '<option value="">Select State</option>';
+
+        let states = [];
+        if (country === 'US') states = STATES_US;
+        else if (country === 'KE') states = STATES_KE;
+        else if (country === 'KW') states = STATES_KW;
+
+        states.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state[0];
+            option.text = state[1];
+            option.selected = (state[0] === initialState);
+            stateField.appendChild(option);
+        });
+
+        // Trigger city population after states are loaded
+        populateCities();
+    }
+
+    // Function to populate cities
+    function populateCities() {
+        const state = document.getElementById('state').value;
+        const country = document.getElementById('country').value;
+        const cityField = document.getElementById('city');
+        cityField.innerHTML = '<option value="">Select City</option>';
+
+        let cities = [];
+        if (country === 'US') cities = CITIES_US[state] || [];
+        else if (country === 'KE') cities = CITIES_KE[state] || [];
+        else if (country === 'KW') cities = CITIES_KW[state] || [];
+
+        cities.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.text = city;
+            option.selected = (city === initialCity);
+            cityField.appendChild(option);
+        });
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        populateStates();
+        // Set initial country value
+        document.getElementById('country').value = initialCountry;
+        populateStates(); // Force re-populate states based on initial country
+    });
+
+    // Event listeners
+    document.getElementById('country').addEventListener('change', populateStates);
+    document.getElementById('state').addEventListener('change', populateCities);
+</script> {% endcomment %}
+{% endblock %}

@@ -1,0 +1,2051 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+:root{
+    --green:#007f3c;
+    --blue:#0c8de0;
+    --yellow:#f9be1a;
+}
+body{
+    width: 100%;
+}
+body main{
+    width: 100%;
+}
+.bodycontent{
+    width: 100%;
+    display:flex;
+}
+.sidebar{
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+}
+.sidebar .sidebarbox{
+    width: 100%;
+    height: 100vh;
+    background-color: #007f3c;
+}
+.sidebarbox hr{
+    border: none;
+    height: 1px;
+    background-color: rgb(184, 184, 184);
+}
+.sidebarbox .head{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.head img{
+    width: 50px;
+    height: 50px;
+}
+.sidebarbox .topbox{
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: #f9be1a;
+}
+.sidebarbox ul{
+    list-style-type: none;
+}
+.sidebarbox ul li{
+    margin-bottom: 10px;
+}
+/* .topbox,.middlebox,.bottombox{
+    padding: 10px;
+} */
+.middlebox{
+    margin-top: 40px;
+    margin-bottom:40px ;
+}
+
+.sidebarbox ul li a{
+    display: block;
+    margin: 0 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+    text-decoration: none;
+    padding:5px 10px;
+    border-radius: 5px;
+    transition: .5s;
+    cursor: pointer;
+}
+.sidebarbox ul li a h2{
+    font-size: 13px;
+    color: beige;
+    text-wrap: nowrap;
+    margin-right: 10px;
+}
+.sidebarbox ul li a:hover{
+    background-color: var(--yellow);
+}
+.sidebarbox i{
+    font-size: 25px;
+    color: #ffffff;
+}
+.sidebarbox ul li a .dropdown{
+    position: absolute;
+    right: 0spx;
+    transform: rotate(-90deg);
+}
+/* dropdown======================== */
+.sidebarbox ul li .submenu {
+    width: 100%;
+    background-color: rgb(2, 53, 21);
+    position: relative;
+    max-height: 0; /* Start with max-height 0 */
+    overflow: hidden; /* Hide overflow */
+    opacity: 0; /* Start fully transparent */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+.sidebarbox ul li .submenu i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+.sidebarbox ul li a .dropdown-icon{
+    position: absolute;
+    right: 5px;
+    transform: rotate(-90deg);
+    transition: transform 0.5s ease;
+}
+.sidebarbox ul li .submenu ul li a h2 {
+    font-size: 14px;
+    color: rgb(128, 129, 129);
+}
+
+.dropdown.active .submenu {
+    max-height: 500px; /* Set a reasonable max-height */
+    opacity: 1; /* Fully visible */
+}
+/* maincontents */
+.mainbar{
+    width: 85%;
+    margin-left: 15%;
+    min-height: 100vh;
+}
+.maincontents{
+    width: 100%;
+}
+.maintopresponsive{
+    display: none;
+}
+.maintop{
+    width: 85%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--blue);
+    padding: 10px;
+    gap: 10px;
+    position: fixed;
+    z-index: 10;
+}
+.maintop .search{
+    width: 40%;
+}
+.search form{
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #ffffff;
+    padding:0 3px;
+}
+.search form input{
+    width: 100%;
+    padding:8px 10px;
+    border-radius: 20px;
+    border: none;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    transition: .5s ease-in-out;
+}
+.search form input:focus{
+    outline: none;
+}
+
+.search form button{
+
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(154, 154, 154);
+    border-radius: 50%;
+}
+.search form button i{
+    color: #ffffff;
+    font-size: 20px;
+}
+.maintop .menus{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;justify-content: right;
+    gap: 20px;
+    z-index: 10;
+}
+.menus a{
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 900;
+    color: #ffffff;
+    padding: 7px 10px;
+    border-radius: 5px;
+    transition: .5s;
+}
+.menus a:hover{
+    background-color: #4aadeb;
+}
+.sidebarrepo{
+    display: none;
+}
+/* main========================== */
+.main{
+    width: 100%;
+    padding:55px 20px;
+}
+.herobar{
+    width: 100%;
+}
+.herobox{
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+}
+.heros{
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.herobar .herobox .hero{
+    width: 100%;
+    min-width: 100%;
+    height: 500px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 30px;
+}
+.lefthero{
+    width: 50%;
+}
+.lefthero h1{
+    margin-top: 40px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #007f3c;
+}
+.lefthero h2{
+    color: #0c8de0;
+    font-size: 18px;
+}
+.lefthero p{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.lefthero ul{
+    list-style-type: none;
+    padding-left: 20px;
+}
+.lefthero li{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.lefthero p span{
+    color: red;
+    font-size: 20px;
+    font-weight: 900;
+}
+.lefthero ul li span{
+    font-size: 20px;
+    color: #0c8de0;
+}
+.righthero{
+    width: 40%;
+    height: 100%;
+}
+.righthero img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.container{
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px;
+    border-radius:5px ;
+}
+.container1{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 20px;
+    gap: 30px;
+    border-radius: 5px;
+    background-color: rgb(241, 239, 239);
+}
+.container1 span{
+    color: #007f3c;
+    font-weight: 900;
+}
+.container1 img{
+    width: 70px;
+}
+/* doctors ====================  */
+.doctors{
+    width: 100%;
+    margin-top: 20px;
+}
+.doctop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.doctorsbox{
+    width:100%;
+}
+.doctop h1{
+    color: var(--green);
+}
+.doctop a{
+    text-decoration: none;
+    color: var(--blue);font-weight: 900;
+    font-size: 20px;
+}
+.doctorslist{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.doctor{
+    min-width: 20%;
+    border-radius: 5px;
+    height: 305px;
+    background-color: rgb(241, 239, 239);
+    position: relative;
+    padding: 10px;
+}
+.doctor .img{
+    width: 100%;
+}
+.doctor img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+}
+.doctor h2{
+    color: var(--blue);
+    font-size: 20px;
+}
+.doctor h3{
+    color: var(--green);
+    font-size: 16px;
+}
+.doctor .more{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.more form{
+    width: 50%;
+}
+.doctor .more button{
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+    background-color: #007f3c;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+}
+.doctor .more button.blue{
+    background-color: #0c8de0;
+}
+/* appointments */
+.appointments{
+    width: 100%;
+    margin-top: 40px;
+}
+.appointments h1{
+    color: var(--green);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.appointments .intro{
+    margin-bottom: 20px;
+}
+.appointments .app{
+    margin-bottom: 10px;
+}
+.appointments ul{
+    margin-left: 100px;
+}
+.appointments ul li{
+    color: #0c8de0;
+    font-size: 18px;
+}
+.appointments ul li ul{
+    margin-left: 70px;
+    margin-top: 15px;
+}
+.appointments ul li ul li{
+   color: #007f3c;
+   font-size: 14px;
+}
+.paymentcards{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.paymentcards .card{
+    width: 350px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    padding: 20px;
+    height: auto;
+    transition: .5s;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #0c8de0;
+}
+.paymentcards .card .cardtop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+}
+.paymentcards .card .cardtop img{
+    width: 60px;
+}
+.paymentcards .card:hover{
+    transform: rotateY(180deg);
+    /* display: none; */
+}
+.paymentcards .card:hover ~ .front{
+    display: none;
+}
+.paymentcards .card .cardimg{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.paymentcards .card .cardimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+}
+.paymentcards .card h1{
+    color: #ffffff;
+}
+.paymentcards .card h2{
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+}
+.paymentcards .card p{
+    text-align: justify;
+}
+.paymentcards .card:hover{
+    background-image: linear-gradient(to top, #0c8de0,#007f3c);
+}
+.paymentcards .card:hover p{
+    color: #ffffff;
+}
+.payment{
+    width: 100%;
+    margin-top: 30px;
+}
+.payment h2{
+    color: #0c8de0;
+    margin-bottom: 10px;
+}
+.paybox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.paybox .method{
+    background-color: antiquewhite;
+    height: 200px;
+    width: 30%;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.pay1{
+    background-image: url(../images/mpesa.jpg);
+}
+.pay2{
+    background-image: url(../images/paypal.jpeg);
+}
+.pay3{
+    background-image: url(../images/visa.jpeg);
+}
+/* services=================== */
+.services{
+    width: 100%;
+    margin-top: 100px;
+}
+.services h1{
+    font-size: 25px;
+    color: #007f3c;
+    margin-bottom: 20px;
+}
+.services h2{
+    font-size: 18px;
+}
+.servicebox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 50px;
+}
+.servicebox .service{
+    width: 24%;
+    min-width: 24%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    padding: 10px;
+    height: 430px;
+}
+.servicebox .service .servebanner{
+    width: 100%;
+    height: 270px;
+}
+.servicebox .service .servebanner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.servicebox .service h2{
+    color: #0c8de0;
+}
+/* faqs=================================== */
+
+.faqs{
+    width: 100%;
+    margin-top: 150px;
+}
+.faqs h2{
+    color: #007f3c;
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 900;
+}
+.faqsdiv{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+.faq-item{
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+    padding: 10px;
+}
+/* foter================================== */
+footer{
+    width: 85%;
+    background-color: rgb(43, 43, 43);
+    margin-left: 15%;
+    padding: 40px;
+}
+.footerdivs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.footerdivs h2{
+    color: #060706;
+    font-size: 18px;
+}
+.foter a{
+    display: block;
+    padding:4px 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff;
+    margin-left: 20px;
+}
+footer form{
+    width: 40%;
+}
+footer form h2{
+    color: #0c8de0;
+    margin-bottom: 25px;
+}
+footer form .inputdiv{
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+footer form .inputdiv input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 4px;
+}
+footer form .inputdiv textarea:focus,
+footer form .inputdiv input:focus{
+    outline: none;
+}
+footer form .inputdiv input:focus ~ label,
+footer form .inputdiv input:valid ~ label{
+    transform: translateY(-150%);
+}
+footer form .inputdiv label{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    transition: .5s;
+}
+footer form .inputdiv textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.rights p{
+    text-align: center;
+    color: aliceblue;
+    margin-top: 100px;
+}
+footer form button{
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    background-color: rgb(139, 139, 139);
+}
+/* doctors page======================================================================= */
+.docbox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow: hidden;
+}
+/* doctor detailspage================================ */
+.docprofile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profilecontainer img{
+    width: 30px;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.profilecontainer{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.profilecontainer .topside{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+.profilecontainer .topside .imageside{
+    width: 50%;
+    padding: 20px;
+    padding-top: 0;
+}
+.profilecontainer .topside .imageside img{
+    width: 80%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+}
+.profilecontainer .topside .detailside{
+    width: 50%;
+    margin-left: 50px;
+}
+.profilecontainer .topside .detailside h1{
+    font-size: 40px;
+    color: #0c8de0;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+.profilecontainer .topside .detailside h2{
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.profilecontainer .topside .detailside h2 span{
+    color: #0c8de0;
+    font-size: 16px;
+}
+.profilecontainer .topside .detailside .linksbox {
+    width: 100%;
+    margin-top: 20px;
+}
+.profilecontainer .topside .detailside .linksbox h1{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+.profilecontainer .topside .detailside .linksbox .links{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    gap: 30px;
+}
+.profilecontainer .topside .detailside .linksbox .links i{
+    font-size: 30px;
+}
+.twitter,
+.facebook,
+.linkedin{
+    fill: #0c8de0;
+}
+.whatsapp{
+    fill: #08bf5e;
+}
+.profession{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profession h4{
+    font-size: 25px;
+    color: #0c8de0;
+    margin-bottom: 10px;
+}
+.profession h2{
+    font-size: 25px;
+    color: #0c8de0;
+    margin-bottom: 10px;
+}
+.profession h4{
+    font-size: 30px;
+    color: #0c8de0;
+    margin-bottom: 10px;
+}
+.ratings .rates i{
+    font-size: 35px;
+}
+.ratings .rates i:nth-child(1),
+.ratings .rates i:nth-child(2),
+.ratings .rates i:nth-child(3){
+    fill: rgb(247, 247, 36);
+}
+.middle{
+    width: 100%;
+    padding: 20px;
+}
+.middle .residential{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+.middle .residential h1{
+    color:#0c8de0;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+.middle .residential h2{
+    color:#0c8de0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.middle .residential .residentialdetail{
+    width: 40%;
+}
+.middle .residential h2 span{
+    color:#000000;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.middle .aboutdoc{
+    width: 60%;
+}
+.reviews{
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    overflow: scroll;
+}
+.reviews h1{
+    color: #0c8de0;
+    font-size: 30px;
+    
+}
+.reviews .reviewcards{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: scroll;
+    gap: 20px;
+    height: 380px;
+    background-color: rgb(213, 213, 213);
+    pad: 5px;
+}
+.reviewcards .card{
+    width: 25%;
+    min-width: 22%;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    padding: 5px;
+    height: 370px;
+    background-color: rgb(255, 255, 255);
+}
+.reviewcards .card .patientimage{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+.reviewcards .card .patientimage img{
+    width: 100%;
+    height: 100%;
+    object-position: top;
+    object-fit: cover;
+}
+.reviewcards .card h2{
+    color: #007f3c;
+    margin-top: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.reviewcards .card p{
+    font-size: 14px;
+}
+.reviewcards .card .day{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.reviewcards .card .day i{
+    color: #0c8de0;
+}
+.reviewcards .card .day h2{
+    font-size: 14px;
+}
+/* clinic_details============================= */
+.clinic_details{
+    width: 100%;
+}
+.clinictop{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.lefttop{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+}
+.lefttop span{
+    background-color: #09c460;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
+.lefttop h2{
+    font-size: 18px;
+}
+.clinic_name{
+    width: 100%;
+    
+}
+.cliniclogo{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;gap: 20px;
+    margin-bottom: 15px;
+}
+.cliniclogo img{
+    width: 60px;
+}
+.cliniclogo h1{
+    font-size: 40px;
+    text-transform: capitalize;
+    color: #0c8de0;
+}
+.clinicaddress{
+    width: 100%;
+}
+.clinicaddress p{
+    font-size: 18px;
+}
+.clinicimages{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 450px;
+}
+.clinicimages img{
+    border-radius: 5px;
+}
+.leftimage{
+    width: 50%;
+    height: 100%;
+    padding: 5px;
+}
+.leftimage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rightimage{
+    width: 50%;
+    height: 100%;
+}
+.rightimage .righttop{
+    width: 100%;
+    height: 50%;
+    padding: 5px;
+}
+.rightimage .righttop img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.rightimage .rightbottom{
+    width: 100%;
+    height: 50%;
+    padding: 5px;
+}
+.rightimage .rightbottom img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.clinic-details{
+    width: 100%;
+    padding: 5px;
+}
+.clinic-detailsbox{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    gap: 10px;
+}
+.clinic-detailsbox h1{
+    color: #007f3c;
+    margin-bottom: 10px;
+}
+.opening{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+.opening h1{
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.openat ul{
+    list-style-type: none;
+}
+.openat span{
+    margin-right: 10px;
+}
+.clinic-services{
+    width: 50%;
+}
+.clinic-services ul{
+    list-style-type: none;
+}
+.aboutclinic,
+.addresspic{
+    width: 50%;
+}
+.addresspic img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+.clinicdoctors{
+    width: 100%;
+    padding: 5px;
+}
+.clinicdoctors h1{
+    color: #0c8de0;
+    margin: 10px 0;
+}
+.clinc-doctorsbox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.clinic-doctor{
+    /* width: 25%; */
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0,0.2);
+    height: 320px;
+    padding: 5px;
+}
+.clinic-doctor h2{
+    margin-top: 5px;
+    color: #007f3c;
+    font-size: 18px;
+}
+.clinic-doctor-img{
+    width: 100%;
+    height: 73%;
+   
+}
+.clinic-doctor-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.clinic-doctor form{
+    width: 100%;
+    margin-top: 10px;
+}
+.clinic-doctor form button{
+    width: 100%;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #0c8de0;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* clinic lists========================================= */
+.clinic_lists{
+    width: 100%;
+
+}
+.clinic_lists h1{
+    color: #007f3c;
+    font-size: 30px;
+    margin: 10px 0;
+}
+.clinicsbox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.clinic_div{
+    cursor: pointer;
+    height: 310px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0,0.3);
+    padding: 2px;
+    border-radius: 4px;
+    
+}
+.clinicimage{
+    width: 100%;
+    height: 75%;
+    
+}
+.clinicimage img{
+    width: 100%;
+    object-fit: cover;
+    object-fit: top;
+}
+.clinic_div h2{
+    color: #007f3c;
+    font-size: 18px;
+    margin-top: 5px;
+}
+.clinic_div form{
+    width: 100%;
+    margin-top: 5px;
+}
+.clinic_div form button{
+    width: 100%;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #0c8de0;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* appointment form===================================== */
+.appointment-form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.appointment-form form{
+    width: 70%;
+    padding-bottom: 40px;
+}
+.appointment-form form .formtop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 70px;
+}
+.formtop h1{
+    font-size: 40px;
+    text-transform:capitalize;
+    font-weight: 900;
+    color: #007f3c;
+}
+.formtop img{
+    width: 120px;
+}
+.inputcontainer{
+    width: 100%;
+    padding: 5px;
+}
+.inputcontainer .form-control{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(214, 216, 214);
+}
+.inputcontainer .form-select{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(214, 216, 214);
+}
+.appointment-form form label{
+    color: #0c8de0;
+}
+.inputcontainer button{
+    width: 300px;
+    padding: 10px;
+    font-weight: 900;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 4px;
+    border: none;
+    background-color: #0c8de0;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* user profile */
+.profilepage{
+    width: 100%;
+}
+.profiletop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: yellow;
+}
+.prof{
+    margin-top: 20px;
+}
+.prof a{
+    text-decoration: none;
+    background-color:#0c8de0;
+    padding: 10px 20px;
+    color: #ffffff;
+    border-radius: 4px;
+}
+.profilepage h1{
+    text-align: center;
+    color: #0c8de0;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.profilepage .profilebox{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+.top-profile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 100px;
+}
+.profile-left{
+    width: 50%;
+}
+.profile-left img{
+    width: 100%;
+}
+.profile-right{
+    width: 50%;
+    
+}
+.detail h2,
+.profile-right h2{
+    font-size: 18px;
+    background-color: rgb(200, 200, 200);
+    padding: 5px;
+    border-top: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.detail h3,
+.profile-right h3{
+    font-weight: 500;
+    color: #9a9a9a;
+    font-size: 16px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.health-info,
+.personal-details{
+    width: 100%;
+}
+.additional h1,
+.emergency-contact h1,
+.health-info h1,
+.personal-details h1{
+    text-align: left;
+    color: #0c8de0;
+    margin-bottom: 20px;
+}
+.addinfo,
+.emergen,
+.health,
+.persona{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+.health ul{
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
+    list-style-type: none;
+}
+/* profile update */
+.updateform{
+    width: 100%;
+}
+.updateform form{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+.updateform form .inputboxes{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.updateform form .inputboxes label{
+    text-transform: capitalize;
+    color: #0c8de0;
+    font-size: 18px;
+}
+.form-controltext,
+.updateform form .inputboxes .form-control{
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    border: 1px solid grey;
+    padding: 10px;
+}
+.form-controltext{
+    width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+}
+.updateform form h2{
+    color: #007f3c;
+    margin-top: 15px;
+}
+.inputboxes button{
+    width: 100%;
+    background-color: #0c8de0;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+
+
+/* chatbot==================================== */
+.chatbot{
+    width:100%;
+    min-height: 100vh;
+    height: 100vh;
+}
+.mainbarnav{
+    height: 100vh;
+    position: relative;
+}
+.mainbarnav .sidenavbar{
+    position: absolute;
+    z-index: 5;
+    left: 20%;
+    border-radius: 15px;
+    width: 380px;
+    height: 65vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.3);
+    padding: 10px;
+    transform: scale(0);
+    transition: .5s;
+}
+.sidenavbar .chatsboxcontainer{
+    max-height: 60vh;
+
+}
+.sidenavbar .chatsboxcontainer .mychats{
+    max-height: 60vh;
+    overflow-Y: scroll;
+    padding-top: 50px;
+}
+.sidenavbar .chatsboxcontainer .mychats .chat a{
+    text-decoration: none;
+}
+.sidenavbar .chatsboxcontainer .mychats::-webkit-scrollbar{
+    width: 7px;
+    background-color: rgb(143, 143, 143);
+    border-radius: 10px;
+}
+.sidenavbar .chatsboxcontainer .mychats::-webkit-scrollbar-thumb{
+    width: 6px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+.sidenavbar .chatsboxcontainer .chatstop{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #8e8e8e;
+    padding-right: 10px;
+    border-radius: 10px;
+    left: 4px;
+    top: 4px;
+    gap: 10px;
+    position: fixed;
+}
+.sidenavbar .chatsboxcontainer .chatstop button{
+   background-color: transparent;
+   border: none;
+   color: #0c8de0;
+   
+}
+.sidenavbar .chatsboxcontainer .chatstop div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.sidenavbar .chatsboxcontainer .chatstop i{
+    font-size: 40px;
+}
+.sidenavbar .chatsboxcontainer .chatstop h1{
+    color: #0c8de0;
+}
+.sidenavbar .chatsboxcontainer .chat {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+.sidenavbar .chatsboxcontainer .chat h3{
+    color: #000000;
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.sidenavbar .chatsboxcontainer .chat a{
+    color: #8e8e8e;
+    font-weight: 900;
+    padding: 5px;
+    padding-left: 10px;
+    display: block;
+   
+}
+.mainbarnav .maintop{
+    width: 100%;
+}
+
+.mainbarnav .maintop  h1{
+    text-align: center;
+}
+.mainbarnav .chatbody{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    height: 90vh;
+    position: relative;
+}
+.mainbarnav .chatbody .chatsbox{
+    width: 100%;
+    height: 58vh;
+    overflow-y: scroll;
+}
+.mainbarnav .chatbody .chatsbox::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.mainbarnav .chatbody .chatsbox .botmessage{
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+.mainbarnav .chatbody .chatsbox .botmessage .bot-message{
+    background-color: rgb(71, 71, 68,0.8);
+    max-width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    border-bottom-left-radius: 0;
+}
+.mainbarnav .chatbody .chatsbox .userMessage{
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+.mainbarnav .chatbody .chatsbox .userMessage .user-message{
+    max-width: 80%;
+    background-color: rgb(128, 128, 128,0.3);
+    padding: 10px;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+}
+.chatbody form{
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+.chatbody form .inputdiv{
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgb(210, 210, 210);
+    position: relative;
+}
+.chatbody form textarea{
+    width: 100%;
+    font-family:'Times New Roman', Times, serif;
+    border-radius: inherit;
+    max-height: 100px;
+    height: 100px;
+    border: none;
+    background-color: transparent;
+    padding: 15px;
+    font-size: 18px;
+}
+.chatbody form textarea::placeholder{
+    color: #000000;
+}
+textarea::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+textarea:focus{
+    outline:none;
+}
+.chatbody form .inputdiv .chatcontrols{
+    width: 100%;
+    padding: 0px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.chatbody form .inputdiv .chatcontrols label,
+.chatbody form .inputdiv .chatcontrols button{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    transition: .5s;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(153, 153, 153);
+}
+.chatbody form .inputdiv .chatcontrols .left #charts{
+    width: unset;
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    padding: 0 20px;
+    font-family: tim;
+    font-size: 20px;
+    font-weight:900;
+}
+.chatbody form .inputdiv .chatcontrols .left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}.chatbody form .inputdiv .chatcontrols .left #search,
+.chatbody form .inputdiv .chatcontrols .left .attachment{
+    margin-right: 20px;
+}
+.chatbody form .inputdiv .chatcontrols label i,
+.chatbody form .inputdiv .chatcontrols button i{
+    font-size: 30px;
+    transition: .5s;
+}
+.chatbody form .inputdiv .chatcontrols .right{
+    position: relative;
+}
+.chatbody form .inputdiv .chatcontrols .right #upload:hover{
+    background-color: #000000;
+}
+.chatbody form .inputdiv .chatcontrols .right #upload:hover i{
+    color: #ffffff;
+}
+.bot-message .loading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.bot-message .loading .loader{
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+    animation-name: loading;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-direction: normal;
+}
+@keyframes loading {
+    0%{
+        opacity: 0.2;
+        transform: translateY(3px);
+    }
+    25%{
+        opacity: 0.4;
+        transform: translateY(-3px);
+    }
+    50%{
+        opacity: 0.6;
+        transform: translateY(3px);
+    }
+    75%{
+        opacity: 0.8;
+        transform: translateY(-3px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(3px);
+    }
+}
+
+.bot-message .loading .loader:nth-child(1){
+    animation-delay: 0.2s;
+}
+.bot-message .loading .loader:nth-child(2){
+    animation-delay: 0.4s;
+}
+.bot-message .loading .loader:nth-child(3){
+    animation-delay: 0.6s;
+}
+
+
+
+/* notifications============= */
+.notificationsection{
+    width: 100%;
+}
+.notificationsection h1{
+    color: var(--blue);
+}
+.notificationbox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+}
+.notifictiondiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.notificationleft img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;object-position: top;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+}
+.actionnote{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.notificationight{
+    width: 70%;
+}
+.notificationstop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.notificationstop h2{
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.notificationstop i{
+    color: #064ca9;
+    font-size: 20px;
+}
+.actionnote .mark,
+.actionnote .paymentbutton,
+.notificationstop form button,
+.actionnote form button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    border-radius: 4px;
+    gap: 5px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+}
+.actionnote .mark,
+.actionnote .paymentbutton h2,
+.actionnote form button h2{
+    font-size: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.actionnote .mark{
+    background-color: #0c8de0;
+}
+.actionnote .paymentbutton{
+    background-color: #007f3c;
+}
+.actionnote form .paymentbutton i{
+    color: brown;
+}
+.notificationstop button,
+.actionnote form .deletemessage{
+    background-color: #e30000;
+}
+.actionnote form .deletemessage i{
+    color: #064ca9;
+}
+
+
+/* payment ======================================= */
+
+.paymentsection{
+    width: 100%;
+    display: none;
+    height: 90vh;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.modal{
+    width: 100%;
+    display: none;
+}
+.paymentform{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+}
+.paymentform form{
+    width: 100%;
+    background-color: rgb(216, 216, 216);
+    padding:  10px;
+}
+.paymenttop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+
+}
+.means{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.means a{
+    width: 30%;
+    padding: 4px;
+}
+.means img{
+    border-radius: 4px;
+    width: 100%;
+    height: 65px;
+    object-fit: cover;
+    object-position: center;
+}
+.paymentbox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.paymentleft{
+    width: 50%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.paymentleft img{
+    width: 70%;
+    height: 300px;
+    transform: skew(10deg);
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 5px 5px 20px 10px rgba(46, 13, 13, 0.4);   
+}
+.bacdiv{
+    width:70%;
+    height: 300px;
+    background-color: #07c760;
+    position: absolute;
+    transform: skew(10deg);
+    border-radius: 20px;
+    z-index: 5;
+    bottom: 25px;
+    right: 50px;
+}
+.paymentright{
+    width: 50%;
+    padding: 20px;
+    padding-left: 50px;
+}
+.paydiv{
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+}
+.paydiv .input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.amountdiv{
+    width: 100%;
+    padding: 10px 5px;
+}
+.amountbox h2{
+    font-size: 18px;
+    font-weight: 900;
+}
+.amountbox h3{
+    font-size: 18px;
+    font-weight: 900;
+    color: #0c8de0;
+}
+.amountbox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.paydiv button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(5, 160, 5);
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+}
+
+
+
+
+/* search results=========================== */
+.results{
+    width: 100%;
+}
+.results a{
+    text-decoration: none;
+}
+.results .resultsdiv{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.results .resultsdiv .resultstop{
+    width: 100%;
+    padding: 10px;
+}
+.results .resultsdiv .resultstop p{
+    font-size: 24px;
+    text-align: center;
+}
+.results .resultsdiv .resultstop p span{
+    color: #0c8de0;
+}
+.resultsontainer{
+    width: 100%;
+    background-color: rgb(246, 33, 0);
+    padding: 10px ;
+    border-radius: 5px;
+}
+.resultsontainer p{
+    font-size: 20px;
+}
+.resultsontainer2{
+    width: 100%;
+    padding: 0 10px;
+}
+.resultsontainer2 .doctorsresult{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:10px 10px;
+}
+.resultsontainer2 .doctorsresult .doctorinfo{
+    width: 33%;
+    max-width: 33%;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 5px;
+}
+.resultsontainer2 .doctors h1{
+    color: #0c8de0;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 18px;
+}
+.resultsontainer2 .doctors{
+    margin-bottom: 0px;
+}
+.resultsontainer2 .doctorsresult .doctorinfo a{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content:left ;
+    gap: 50px;
+}
+.resultsontainer2 .doctorsresult .doctorinfo a .imageside{
+    width: 20%;
+    height: 100px;  
+}
+.doctorinfo a .imageside img{
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 2px solid #0c8de0;
+}
+.doctorinfo a .detailsside{
+    width: 80%;
+}
+.doctorinfo a .detailsside h2{
+    color: #007f3c;
+    font-size: 20px;
+}
+.doctorinfo a .detailsside ul{
+    list-style-type: none;
+}
+.doctorinfo a .detailsside ul li a{
+    text-decoration: none;
+    color: #060706;
+    font-size: 16px;
+}
+.doctorinfo a .detailsside h3{
+    color: #000000;
+    font-size: 14px;
+}
+.doctorinfo a .detailsside h3 span{
+    color: #0c8de0;
+    font-size: 16px;
+}
+
+.booking{
+    width: 100%;
+}
+.booking h1{
+    color: #0c8de0;
+}
+.booking form{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    border-radius: 5px;
+}
+.booking form .inputbook{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.booking form .inputbook .form-control{
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+.booking .inputbook .form-control:focus{
+    outline: none;
+}
+.booking form .inputbook label{
+    color: #0c8de0;
+}
+.booking form .inputbook button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #0c8de0;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+}

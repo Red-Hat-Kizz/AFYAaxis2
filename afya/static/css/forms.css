@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --blue:#0c8de0;
+    --green:#007f3c;
+}
+body{
+    width: 100%;
+   
+}
+body main{
+    width: 100%;
+}
+.forms{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    width: 500px;
+}
+form .formtop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.formtop img{
+    width: 100px;
+}
+.formtop h1{
+    color: #0c8de0;
+    font-weight: 900;
+}
+form .inputdiv{
+    width: 100%;
+    margin-bottom:30px ;
+}
+form .inputdiv label{
+    font-size: 20px;
+    margin-left: 10px;
+}
+form .inputdiv label a{
+    text-decoration: none;
+    color: #0c8de0;
+}
+form .inputdiv .input{
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 15px;
+    border: 1px solid rgb(148, 148, 148);
+    color: black;
+    border-radius: 5px;
+    
+}
+form .inputdiv button{
+    width: 100%;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    color: #ffffff;
+    background-color: var(--blue);
+    padding: 15px;
+    border-radius: 9px;
+    border: none;
+
+}
+.forgot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.forgot a{
+    font-size: 20px;
+    color: #0c8de0;
+    text-decoration: none;
+}
+.orbtn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.orbtn .left{
+    height: 2px;
+    width: 45%;
+    background-color: rgb(160, 160, 160);
+}
+.orbtn h1{
+    font-size: 20px;
+    color: rgb(23, 23, 23);
+}
+.orbtn .right{
+    height: 2px;
+    width: 45%;
+    background-color: rgb(160, 160, 160);
+}
+.google{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #909090;
+    padding: 10px;
+    border-radius: 9px;
+    text-decoration: none;
+}
+.google h2{
+    color: #909090;
+}
+.google img{
+    width: 40px;
+}

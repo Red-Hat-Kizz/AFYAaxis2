@@ -1,0 +1,59 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\appointments\admin_appointment_list.html -->
+{% extends "base/layout.html" %}
+
+{% block content %}
+<h1>All Appointments</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Clinic</th>
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.patient.username }}</td>
+            <td>Dr. {{ appointment.doctor.last_name }}</td>
+            <td>{{ appointment.doctor.clinic.name }}</td>
+            <td>{{ appointment.appointment_date }}</td>
+            <td>{{ appointment.appointment_time }}</td>
+            <td>{{ appointment.get_appointment_type_display }}</td>
+            <td>{{ appointment.get_status_display }}</td>
+            <td>
+                <form method="post" action="{% url 'approve_appointment' appointment.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Approve</button>
+                </form>
+                <button class="reject-btn" data-id="{{ appointment.id }}">Reject</button>
+                <form method="post" action="{% url 'reject_appointment' appointment.id %}" class="reject-form" id="reject-form-{{ appointment.id }}" style="display:none;">
+                    {% csrf_token %}
+                    <textarea name="reject_reason" placeholder="Reason for rejection"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.reject-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var appointmentId = this.getAttribute('data-id');
+            var form = document.getElementById('reject-form-' + appointmentId);
+            form.style.display = 'block';
+        });
+    });
+});
+</script>
+{% endblock %}

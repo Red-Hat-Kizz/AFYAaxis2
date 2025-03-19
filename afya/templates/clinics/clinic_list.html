@@ -1,0 +1,27 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}Afya axis{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<section class="clinic_lists">
+    <h1>Afya Axis Clinics</h1>
+    <div class="clinicsbox">
+        {% for clinic in clinics%}
+        <div class="clinic_div">
+            <div class="clinicimage">
+                {% if clinic.image1 %}
+                    <img src="{{ clinic.image1.url }}" alt="{{ clinic.name }}">
+                {% else %}
+                <img src="{% static 'images/default clinic.png' %}" alt="">
+                {% endif %}
+            </div>
+            <h2>{{ clinic.name }}</h2>
+            <form action="{% url 'clinic_detail' clinic.id %}">
+                <button>View Clinic</button>
+            </form>
+        </div>
+        {%endfor%}
+    </div>
+   </section>
+{% endblock %}

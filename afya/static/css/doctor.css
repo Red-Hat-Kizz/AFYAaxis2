@@ -1,0 +1,777 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --green:#007f3c;
+    --blue:#0c8de0;
+    --yellow:#f9be1a;
+}
+body{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+}
+main{
+    position: relative;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+.sidebar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    width: 17%;
+    height: 100%;
+    background: var(--blue);
+    color: white;
+}
+
+.sidetop{
+    padding: 20px;
+}
+
+.sidetop h2,
+.sidetop h1{
+    text-align: center;
+    font-weight: 900;
+    line-height: 1.1em;
+}
+.sidebottom a,
+.sidemiddle a{
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-bottom: 10PX;
+    transition: .5s;
+}
+.sidebottom a h2,
+.sidemiddle a h2{
+    font-size: 16px;
+    color: #ffffff;
+    transition: .5s;
+}
+.sidebottom a i,
+.sidemiddle a i{
+    font-size: 25px;
+    color: beige;
+    transition:.5s;
+}
+.sidebottom a:hover,
+.sidemiddle a:hover{
+    background: #ffffff;
+}
+.sidebottom a:hover h2,
+.sidemiddle a:hover h2{
+    color: var(--blue);
+}
+.sidebottom a:hover i,
+.sidemiddle a:hover i{
+    color: var(--blue);
+}
+/* mainbar========================================== */
+.mainbar{
+    width: 83%;
+    margin-left: 0%;
+    padding: 0 20px;
+    position: relative;
+}
+.main{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-items: space-between;
+    gap: 30px;
+}
+.main .mainleft{
+    width: 70%;
+}
+.mainright img{
+    width: 30px;
+}
+.mainleft .topbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar .topbarleft{
+    width: 60%;
+    padding: 5px 0;
+}
+.topbar .topbarleft form{
+    width: 100%;padding: 5px 7px 5px 0px;
+    display: flex;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+.topbar .topbarleft form input{
+    width: 95%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border: none;
+    padding: 5px 10px;
+}
+.topbar .topbarleft form button{
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+.topbar .topbarleft form button i{
+    font-size: 20px;
+    color: grey;
+}
+.topbarright{
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 5px 0;
+}
+.topbarright a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    width: 40px;height: 40px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    position: relative;
+}
+.topbarright a i{
+    color: var(--blue);
+    font-size: 25px;
+}
+.topbarright a span{
+    position: absolute;
+    background-color: red;
+    width: 20px;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+.welcome{
+    background-color: var(--blue);
+    position: relative;
+    height: 300px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    padding: 30px;
+    background-image: url(../images/doctorframe.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.welcomeleft .date{
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    border-radius: 7px;
+}
+.welcomeleft .date i{
+    font-size: 25px;
+    color: beige;
+}
+.welcomeleft .date h2{
+    font-size: 18px;
+    color: #ffffff;
+}
+.message{
+    position: absolute;
+    bottom: 30px;
+}
+.message h1{
+    font-size: 30px;
+    color: #ffffff;
+}
+.message p{
+    font-size: 20px;
+    color: #ffffff;
+}
+.mainright{
+    width: 24%;
+    position: fixed;
+    right: 20px;
+    padding: 5px 0px 0px 10px;
+}
+.profilebox{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    border-radius: 5px;
+
+}
+.profiletop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--blue);
+    padding: 7px 10px;
+    border-radius: 6px;
+}
+.profiletop h1{
+    font-size: 20px;
+    color: #ffffff;
+}
+.profiletop a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.profiletop i{
+    font-size: 30px;
+    color: #ffffff;
+}
+.profilemiddle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 15px;
+}
+.profilemiddle .profileleft img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+.profileright h2{
+    font-size: 20px;
+    color: var(--blue);
+}
+.profileright h3{
+    font-size: 14px;
+    color: grey;
+}
+.profileright .location{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+    margin-top: 20px;
+}
+.profileright .location p{
+    font-size: 14px;
+}
+.profileright .location i{
+    font-size: 15px;
+    color: var(--blue);
+}
+.profiledetails{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.profiledetails .detail{
+    padding:10px 15px;
+    width: 33%;
+    border-right: 2px solid grey;
+}
+.profiledetails .detail:last-child{
+    border-right: none;
+}
+.profiledetails .detail h2{
+    font-size: 10px;
+    text-align: center;
+    color: grey;
+}
+.profiledetails .detail p{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+.statistics{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 10px;
+}
+.static{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px;
+    padding: 7px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+}
+.static h1{
+    color: var(--blue);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.stat{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.stat img{
+    width: 30%;
+}
+.statcount:nth-child(1) h3{
+    background-color: orange;
+    font-size: 12px;
+}
+.statcount h3{
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.orange h3{
+    background-color: rgb(250, 190, 80,0.8);
+    color: orangered;
+}
+.green h3{
+    background-color: rgba(1, 254, 39, 0.8);
+    color: rgb(6, 121, 0);
+}
+.purple h3{
+    background-color: rgba(72, 131, 224, 0.8);
+    color: rgb(0, 38, 253);
+}
+.events{
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.eventsright,
+.eventsleft{
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+.eventtop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+.eventtop h1{
+    font-size: 16px;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+.eventtop span{
+    background-color: rgb(12, 141, 224,0.5);
+    padding:5px 15px;
+    border-radius: 4px;
+    color: #0c8de0;
+    font-weight: 900;
+}
+.eventbox{
+    width:100%;
+}
+.event{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.userimage img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.eventoption ul{
+    list-style-type: none;
+}
+.eventoption{
+    margin:0 5px;
+    cursor: pointer;
+}
+.event p{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+.eventoption button{
+    border: none;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 900;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(0, 203, 0);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.event .consultbtn{
+    background-color: #0c8de0;
+}
+.event1{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.event1top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+   
+}
+.event1top h2{
+    font-size: 14px;
+}
+.ranges{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 7px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+.range{
+    width: 64%;
+    background-color: rgb(5, 33, 190);
+    height: 100%;
+    border-radius: inherit;
+}
+
+.range2{
+    background-color: orange;
+    width: 50%;
+}
+.range3{
+    background-color: rgb(227, 0, 227);
+    width: 33%;
+}
+.event1 form{
+    width: 100%;
+}
+.event1 form button{
+    width: 100%;
+    padding: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    border: 2px dotted grey;
+    border-radius: 7px;
+    background-color: #eeeeee;
+}
+.event1 form button i{
+    color: #000f62;
+    font-size: 20px;
+}
+
+.completed{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.completedtop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px 10px;
+    background-color: #0c8de0;
+    border-radius: 5px;
+}
+.completedtop span{
+    background-color: #3cadf3;
+    color: #0010ec;
+    padding:5px 10px;
+    border-radius: 5px;
+}
+.completedtop h1{
+    color: #ffffff;
+    font-size: 16px;
+}
+.completedlist{
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px 7px;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+.list{
+    
+    padding: 5px;
+    border-radius: 4px;margin-bottom: 5px;
+}
+.list:nth-child(odd){
+    background-color: rgb(238, 238, 238);
+}
+.list:nth-child(even){
+    background-color: rgb(216, 215, 215);
+}
+.list p{
+    font-size: 16px;
+}
+.viewall{
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px 7px;
+}
+.viewall a{
+    text-decoration: none;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: #0c8de0;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #ffffff;
+}
+/* consultation form====================================== */
+.consultationform{
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+.consultationform h1{
+    color: #0c8de0;
+    font-size: 25px;
+}
+.consultationform form{
+    margin-top: 20px;
+    width: 100%;
+}
+.consultationform form .inputbox{
+    width: 100%;
+    margin-bottom: 5px;
+}
+.consultationform form .inputbox .form-control{
+    width: 100%;
+    font-size: 16px;
+    padding:5px 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.consultationform form .inputbox .form-control:focus{
+    outline: none;
+}
+.form-controltext{
+    width: 100%;
+    font-size: 16px;
+    height: 100px;
+    max-height: 100px;
+    padding:5px 10px;
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.form-controltext:focus{
+    outline:none;
+}
+.consultationform form .inputbox label{
+    color: #0c8de0;
+    font-size: 14px;
+}
+.inputbox button{
+    width: 100%;
+    background-color: #0c8de0;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-weight: 900;
+    padding: 7px;
+    cursor: pointer;
+}
+
+/* notifications============= */
+.notificationsection{
+    width: 100%;
+}
+.notificationsection h1{
+    color: var(--blue);
+}
+.notificationbox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+}
+.notifictiondiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.notificationleft img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;object-position: top;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+}
+.actionnote{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.notificationight{
+    width: 70%;
+}
+.notificationstop{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.notificationstop h2{
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.notificationstop i{
+    color: #064ca9;
+    font-size: 20px;
+}
+.actionnote .mark,
+.actionnote .paymentbutton,
+.notificationstop form button,
+.actionnote form button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    border-radius: 4px;
+    gap: 5px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+}
+.actionnote .mark,
+.actionnote .paymentbutton h2,
+.actionnote form button h2{
+    font-size: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.actionnote .mark{
+    background-color: #0c8de0;
+}
+.actionnote .paymentbutton{
+    background-color: #007f3c;
+}
+.actionnote form .paymentbutton i{
+    color: brown;
+}
+.notificationstop button,
+.actionnote form .deletemessage{
+    background-color: #e30000;
+}
+.actionnote form .deletemessage i{
+    color: #064ca9;
+}
+
+/* apointments */
+
+.appointmentsdash{
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 50px;
+}.dashbar{
+    width: 100%;
+}
+.dashbar h1{
+    color: #0c8de0;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.appointtable{
+    width: 100%;
+}
+.appointtable h3{
+    font-size:20px;
+    margin-bottom: 10px;
+}
+.appointtable table{
+    width: 100%;
+    border: 1px solid #0c8de0;
+}
+.appointtable table th{
+    border: 1px solid #0c8de0;
+    background-color: #0c8de0;
+    padding: 5px;
+    text-align: left;
+}
+.appointtable table td{
+    border: 1px solid #0c8de0;
+    padding: 5px;
+    position: relative;
+}
+.appointtable table td h2{
+    font-weight: 400;
+    font-size: 18px;
+}
+.appointtable table td span{
+    width: 15px;
+    position: absolute;
+    height: 15px;
+    background-color: red;
+    border-radius: 3px;
+    right: 10px;
+    top: 10px;
+}

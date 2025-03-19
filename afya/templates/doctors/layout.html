@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/doctor.css' %}">
+</head>
+<body>
+    <main>
+        {%include 'doctors/sidebar.html'%}
+        <div style="margin-left:0;" class="mainbar">
+            <div class="main">
+                {% block content %}
+            
+                {%endblock%}
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/7540b12065.js" crossorigin="anonymous"></script>
+</body>
+</html>

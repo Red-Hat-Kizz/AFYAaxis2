@@ -1,0 +1,113 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\base\search_results.html -->
+{% extends "base/layout.html" %}
+{%load static%}
+{% block content %}
+<section class="results">
+    <div class="resultsdiv">
+        <div class="resultstop">
+            <p>Search results for <span>"{{ query }}"</span></p>
+        </div>
+        {% if not doctors and not clinics and not services_with_clinics and not specializations %}
+        <div class="resultsontainer">
+            <p>Oops!! No results found</p>
+        </div>
+        {% endif %}
+        <div class="resultsontainer2">
+            {% if doctors %}
+            <div class="doctors">
+                <h1>Doctors</h1>
+                <div class="doctorsresult">
+                    {% for doctor in doctors %}
+                    <div class="doctorinfo">
+                        <a href="{% url 'doctor_detail' doctor.id %}">
+                            <div class="imageside">
+                                {% if doctor.profile_picture %}
+                                <img src="{{ doctor.profile_picture.url }}" alt="" />
+                                {% else %}
+                                <img src="{% static 'images/logo.png' %}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="detailsside">
+                                <h2>Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h2>
+                                <h3><span>Specialization: </span>{{ doctor.specialization.name }}</h3>
+                                <h3><span>Clinic: </span>{{ doctor.clinic.name }}</h3>
+                                <h3><span>Location: </span>{{ doctor.city }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if clinics %}
+            <div class="doctors">
+                <h1>Clinics</h1>
+                <div class="doctorsresult">
+                    {% for clinic in clinics %}
+                    <div class="doctorinfo">
+                        <a href="{% url 'clinic_detail' clinic.id %}">
+                            <div class="imageside">
+                                {% if clinic.image1 %}
+                                <img src="{{ clinic.image1.url }}" alt="" />
+                                {% else %}
+                                <img src="{% static 'images/logo.png' %}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="detailsside">
+                                <h2>{{ clinic.name }}</h2>
+                                <h3><span>Address: </span>{{ clinic.address }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if services_with_clinics %}
+            <div class="doctors">
+                <h1>Services</h1>
+                <div class="doctorsresult">
+                    {% for service, service_clinics in services_with_clinics %}
+                    <div class="doctorinfo">
+                        <h2>{{ service.name }}</h2>
+                        <a>
+                            <div class="imageside">
+                                {% if service.image %}
+                                <img src="{{ service.image.url }}" alt="" />
+                                {% else %}
+                                <img src="{% static 'images/logo.png' %}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="detailsside">
+                                <ul>
+                                    {% for clinic in service_clinics %}
+                                    <li>
+                                        <a href="{% url 'clinic_detail' clinic.id %}">
+                                            {{ clinic.name }} - {{ clinic.address }}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if specializations %}
+            <div class="doctors">
+                <h1>Specializations</h1>
+                <div class="doctorsresult">
+                    {% for specialization in specializations %}
+                    <div class="doctorinfo">
+                        <h2>{{ specialization.name }}</h2>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{%load static%}
+<div class="sidebarleft">
+    <div class="sidebarheader">
+        <div class="adminimage">
+            {%if user.profile.profile_picture %}
+            <img src="{{user.profile.profile_picture.url}}" alt="">
+            {%else%}
+            <img src="{% static 'images/admin-settings.png' %}" alt="">
+            {%endif%}
+        </div>
+    </div>
+    <div class="adminname">
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+    </div>
+    <div class="menuitems">
+        <a href="{% url 'dashboard_home' %}"><i class="fa-solid fa-hospital"></i></i>Home</a>
+        <a href="{% url 'afya_users' %}"><i class="fa-solid fa-users"></i>Registered users</a>
+        <a href="{% url 'afya_doctors' %}"><i class="fa-solid fa-user-doctor"></i>Doctors</a>
+        <a href="{% url 'afya_clinics' %}"><i class="fa-solid fa-house-medical-circle-check"></i>Clinics</a>
+        <a href="{% url 'afya_appointments' %}"><i class="fa-solid fa-calendar-check"></i>Appointments</a>
+        <a href="{% url 'enter_afya_id' %}"><i class="fa-solid fa-server"></i>Health Records</a>
+        {% comment %} <a href="{% url 'create_consultation' %}">Create consultation</a> {% endcomment %}
+        <a href=""><i class="fa-solid fa-server"></i>Services</a>
+        <a href=""><i class="fa-solid fa-sack-dollar"></i></i>Income</a>
+    </div>
+    <div class="logoutdiv">
+        <a href=""><i class="fa-solid fa-gear"></i>Settings</a>
+        <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    </div>
+</div>

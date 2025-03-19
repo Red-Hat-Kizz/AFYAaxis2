@@ -1,0 +1,36 @@
+{%load static%}
+<div class="contentsright">
+    <div class="rightdiv">
+        <div class="calender">
+        </div>
+    </div>
+        <div class="docsbox">
+            {%for doctor in doctors%}
+            <div class="doc">
+                <a href="">
+                    <div class="docpic">
+                        {%if doctor.profile_picture%}
+                        <img src="{{doctor.profile_picture.url}}" alt="">
+                        {%else%}
+                        <img src="{% static 'images/default-doc.png' %}" alt="">
+                        {%endif%}
+                    </div>
+                    <div class="docdetails">
+                        <h2>Dr. {{doctor.first_name}} {{doctor.last_name}}</h2>
+                        <p>{{ doctor.specialization.name }}</p>
+                        <div class="docratings">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {%endfor%}
+            <div class="docbtn">
+                <a href="{% url 'afya_doctors' %}">View all</a>
+            </div>
+        </div>
+</div>

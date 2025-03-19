@@ -1,0 +1,10 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\health_records\templates\health_records\create_health_record.html -->
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>Create Health Record</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

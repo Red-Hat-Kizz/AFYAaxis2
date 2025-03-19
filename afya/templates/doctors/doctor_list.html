@@ -1,0 +1,41 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}Afya axis{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<section class="doctors">
+    <div class="doctop">
+        <h1>Afya Axis Registered Doctors </h1>
+    </div>
+    <div class="doctorsbox">
+        <div class="doctorslist docbox">
+           {%for doctor in doctors%} 
+            <div class="doctor">
+                <div class="img">
+                    {% if doctor.profile_picture%}
+                    <img src="{{ doctor.profile_picture.url }}" alt="{{ doctor.last_name }}'s Profile Picture">
+                    {%endif%}
+                </div>
+                <h2>Dr. {{ doctor.last_name }}</h2>
+                <h3>{{ doctor.specialization.name }}</h3>
+                <div class="more">
+                    {% if doctor.availability %}
+                    <form action="{% url 'create_appointment' doctor.id %}">
+                        <button>Appointment</button>
+                    </form>
+                    {% else %}
+                    <p style="background-color:red;"><strong>Unavailable</strong></p>
+                    {% endif %}
+                    
+                    <form action="{% url 'doctor_detail' doctor.id %}">
+                        <button>View</button>
+                    </form>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

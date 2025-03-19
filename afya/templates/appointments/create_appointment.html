@@ -1,0 +1,12 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\appointments\create_appointment.html -->
+{% extends "base/layout.html" %}
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<h1>Create Appointment with Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Appointment</button>
+</form>
+{% endblock %}

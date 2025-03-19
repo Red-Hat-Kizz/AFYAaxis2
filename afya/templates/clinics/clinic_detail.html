@@ -1,0 +1,100 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}Afya axis{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<section class="clinic_details">
+    <div class="clinictop">
+        <div class="lefttop">
+            
+            {% if is_open %}
+            <span>Open Now</span>
+            {% else %}
+            <span>Closed</span>
+            {% endif %}
+            {% if current_day_hours.open and current_day_hours.close %}
+                <h2> {{ current_day_hours.open }} - {{ current_day_hours.close }}</h2>
+            {% else %}
+            <h2>...</h2>
+            {%endif%}
+        </div>
+        <div class="clinic_name">
+            <div class="cliniclogo">
+                <img src="{% static 'images/cliniclogo.png' %}" alt="">
+                <h1>{{ clinic.name }}</h1>
+            </div>
+            
+            <div class="clinicaddress">
+                <p>{{ clinic.address }}</p>
+                <p><strong>Website:</strong> <a href="{{ clinic.website }}" target="_blank">{{ clinic.website }}</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="clinicimages">
+        <div class="leftimage">
+            {% if clinic.image1 %}
+                <img src="{{ clinic.image1.url }}" alt="Clinic Image 1" width="200">
+            {% endif %}
+        </div>
+        <div class="rightimage">
+            <div class="righttop">
+                {% if clinic.image2 %}
+                    <img src="{{ clinic.image2.url }}" alt="Clinic Image 2" width="200">
+                {% endif %}
+            </div>
+            <div class="rightbottom">
+                {% if clinic.image3 %}
+                    <img src="{{ clinic.image3.url }}" alt="Clinic Image 3" width="200">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="clinic-details">
+        <div class="clinic-detailsbox">
+            <div class="aboutclinic">
+                <h1>About Clinic</h1>
+                <p>{{clinic.about}}</p>
+                <div class="opening">
+                    <div class="clinic-services">
+                        <h1>Services offered</h1>
+                        <ul>
+                            {% for service in clinic.services.all %}
+                                <li>{{ service.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="openat">
+                        <h1>Opening hours</h1>
+                        <ul>
+                            {% for hours in clinic.opening_hours.all %}
+                                <li>{{ hours.day }}: {{ hours.opening_time }} - {{ hours.closing_time }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <img src="{% static 'images/map.jpeg' %}" alt=""> 
+            </div>
+        </div>
+    </div>
+    <div class="clinicdoctors">
+        <h1>Clinic Doctors</h1>
+        <div class="clinc-doctorsbox">
+            {% for doctor in doctors %}
+            <div class="clinic-doctor">
+                <div class="clinic-doctor-img">
+                    {% if doctor.profile_picture%}
+                        <img src="{{ doctor.profile_picture.url }}" alt="{{ doctor.last_name }}'s Profile Picture">
+                    {%endif%}
+                </div>
+                <h2>Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h2>
+                <form action="{% url 'doctor_detail' doctor.id %}">
+                    <button>View Doctor</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

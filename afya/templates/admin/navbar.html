@@ -1,0 +1,19 @@
+ {%load static%}
+ {%load notification_tags%}
+<div class="mainbarhead">
+    <div class="navleft">
+        <a class="dash" href="">Dashboard</a>
+        <a class="web" href="{% url 'home' %}"><i class="fa-solid fa-globe"></i>View Website</a>
+    </div>
+    <div class="navright">
+        <a href=""><i class="fa-solid fa-message"></i><span>0</span></a>
+        <a href="{% url 'admin_notifications' %}"><i class="fa-solid fa-bell"></i><span>{% all_unread_notifications_count %}</span></a>
+        <a href="">
+            {%if user.profile.profile_picture %}
+            <img src="{{user.profile.profile_picture.url}}" alt="">
+            {%else%}
+            <img src="{% static 'images/admin-settings.png' %}" alt="">
+            {%endif%}
+        </a>
+    </div>
+</div>

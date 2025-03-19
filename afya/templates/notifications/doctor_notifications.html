@@ -1,0 +1,132 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\notifications\doctor_notifications.html -->
+{% extends "doctors/layout.html" %}
+{% load static %}
+{% block content %}
+<div class="mainleft">
+    {% include 'doctors/navbar.html' %}
+    <div class="notificationsection">
+        <div class="notificationstop">
+            <h1>Notifications</h1>
+            <form action="{% url 'delete_all_notifications' %}" method="post">
+                {% csrf_token %}
+                <button>
+                    <i class="fa-solid fa-trash"></i>
+                    <h2>Delete all Notifications</h2>
+                </button>
+            </form>
+        </div>
+        <div class="notificationbox">
+            {% for notification in notifications %}
+            <div class="notifictiondiv">
+                <div class="notificationleft">
+                    {% if notification.user.profile_picture %}
+                    <img src="{{ notification.user.profile_picture.url }}" alt="Profile Picture">
+                    {% else %}
+                    <img src="{% static 'images/admin-settings.png' %}" alt="">
+                    {% endif %}
+                    {% comment %} {%if user.profile.profile_picture %}
+                    <img src="{{user.profile.profile_picture.url}}" alt="">
+                    {%else%}
+                    <img src="{% static 'images/admin-settings.png' %}" alt="">
+                    {%endif%} {% endcomment %}
+                </div>
+                <div class="notificationight">
+                    <p style="font-size:12px;font-weight:500;font-family:Times New Roman;">{{ notification.message }}</p>
+                    <small>{{ notification.created_at }}</small>
+                </div>
+                <div class="actionnote">
+                    {% if not notification.is_read %}
+                    <a href="{% url 'mark_notification_as_read_doctor' notification.id %}">Mark as read</a>
+                    {% else %}
+                    <form action="{% url 'delete_notification' notification.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="deletemessage">
+                            <i class="fa-solid fa-trash"></i>
+                            <h2>Delete</h2>
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <p style="font-size:12px;font-weight:500;font-family:Times New Roman;">There are no notifications currently.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include 'doctors/dashboardright.html' %}
+{% endblock %}
+
+
+{% comment %} <!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\notifications\doctor_notifications.html -->
+{% extends "base/layout.html" %}
+{% load notification_tags %}  <!-- Load your custom notification tags if you have any -->
+{% block content %}
+<h1>Notifications</h1>
+<ul>
+    {% for notification in notifications %}
+    <li>
+        {{ notification.message }} - {{ notification.created_at }}
+        {% if not notification.is_read %}
+        <strong>(New)</strong>
+        <a href="{% url 'mark_notification_as_read_doctor' notification.id %}">Mark as read</a>
+        {% endif %}
+    </li>
+    {% empty %}
+    <li>No notifications found.</li>
+    {% endfor %}
+</ul>
+{% endblock %} {% endcomment %}
+
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\doctors\doctor_dashboard.html -->
+{% comment %} {% extends "doctors/layout.html" %}
+{% load static %}
+{% block content %}
+<div class="mainleft">
+    {%include 'doctors/navbar.html'%}
+    <div class="notificationsection">
+        <div class="notificationstop">
+            <h1>Notifications</h1>
+            <form action="{% url 'delete_all_notifications' %}" method="post">
+                {% csrf_token %}
+                <button>
+                    <i class="fa-solid fa-trash"></i>
+                    <h2>Delete all Notifications</h2>
+                </button>
+            </form>
+        </div>
+        <div class="notificationbox">
+            {% for notification in notifications %}
+            <div class="notifictiondiv">
+                <div class="notificationleft">
+                    {% if notification.profile_picture_url %}
+                    <img src="{{ notification.profile_picture_url }}" alt="Profile Picture">
+                    {% else %}
+                    <img src="{% static 'images/admin-settings.png' %}" alt="">
+                    {% endif %}
+                </div>
+                <div class="notificationight">
+                    <p>{{ notification.applicant_first_name }} {{ notification.applicant_last_name }} applied for a {{ notification.appointment_type }} appointment with Dr. {{ notification.doctor_name }} on {{ notification.appointment_date }} at {{ notification.appointment_time }}</p>
+                </div>
+                <div class="actionnote">
+                    {% if not notification.is_read %}
+                    <a href="{% url 'mark_as_read_admin' notification.id %}">Mark as read</a>
+                    {% else %}
+                    <form action="{% url 'delete_notification' notification.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="deletemessage">
+                            <i class="fa-solid fa-trash"></i>
+                            <h2>Delete</h2>
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <p style="font-size:16px;font-weight:800;">There are no notifications currently.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%include 'doctors/dashboardright.html'%}
+{% endblock %} {% endcomment %}

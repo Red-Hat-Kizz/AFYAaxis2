@@ -1,0 +1,20 @@
+
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}Afya axis{%endblock%}</title>
+
+{% block content %}
+<h1>Appointment Requests</h1>
+<ul>
+    {% for appointment in appointments %}
+        <li>
+            {{ appointment.patient_name }} requested {{ appointment.doctor.last_name }}
+            on {{ appointment.date }} at {{ appointment.time }}
+            <form method="post" action="{% url 'approve_appointment' appointment.id %}">
+                {% csrf_token %}
+                <button type="submit">Approve</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %} 

@@ -1,0 +1,15 @@
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>Consultation Details</h1>
+<p><strong>Date:</strong> {{ consultation.date }}</p>
+<p><strong>Doctor:</strong> Dr. {{ consultation.doctor.first_name }} {{ consultation.doctor.last_name }}</p>
+<p><strong>Appointment Type:</strong> {{ consultation.appointment_type }}</p>
+<p><strong>Symptoms:</strong> {{ consultation.symptoms }}</p>
+<p><strong>Diagnosis:</strong> {{ consultation.diagnosis }}</p>
+<p><strong>Treatment:</strong> {{ consultation.treatment }}</p>
+<p><strong>Follow-up Instructions:</strong> {{ consultation.follow_up_instructions }}</p>
+{% if consultation.attachments %}
+<p><strong>Attachments:</strong> <a href="{{ consultation.attachments.url }}">Download</a></p>
+{% endif %}
+<a href="{% url 'patient_health_records' %}">Back to Consultations</a>
+{% endblock %}

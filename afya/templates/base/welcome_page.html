@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afya Axis</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="tophero">
+                <div class="heroleft">
+                    <a href="">
+                        <img src="{% static 'images/logo.png' %}" alt="">
+                    </a>
+                </div>
+                <div class="heroright">
+                    <h1>Health Partner</h1>
+                </div>
+            </div>
+            <div class="details">
+                <p>Welcome to Afya Axis – where quality healthcare meets convenience</p>
+                <h1>Afya Axis</h1>
+                <h2>Your Health, Made Effortless</h2>
+            </div>
+            <div class="herodiv">
+                <div class="herobuttons">
+                    {% if user.is_authenticated%}
+                        {%if user.is_staff and not user.is_superuser%}
+                            <a href="{% url 'doctor_dashboard' %}">
+                                <h2>Start Now</h2>
+                                <p>Your wellness journey begins here</p>
+                                <p>Skip the wait. Choose care your way</p>
+                            </a>
+                        {%elif user.is_superuser%}
+                            <a href="{% url 'dashboard_home' %}">
+                                <h2>Start Now</h2>
+                                <p>Your wellness journey begins here</p>
+                                <p>Skip the wait. Choose care your way</p>
+                            </a>
+                        {%else%}
+                            <a href="{% url 'home' %}">
+                                <h2>Start Now</h2>
+                                <p>Your wellness journey begins here</p>
+                                <p>Skip the wait. Choose care your way</p>
+                            </a>
+                        {%endif%}
+
+                    {% else%}
+                    <a href="{% url 'login'%}">
+                        <h2>Start Now</h2>
+                        <p>Your wellness journey begins here</p>
+                        <p>Skip the wait. Choose care your way</p>
+                    </a>
+                    {%endif%}
+                    <a href="">
+                        <h2>Get AfyaAxis Mobile App</h2>
+                        <p>Care in your pocket—book, call, or get help anytime, anywhere.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div class="topboxback"></div>
+        <section class="aboutdiv">
+            <div class="aboutinfo">
+                <div class="aboutleft">
+                    <img src="{% static 'images/medicine.png' %}" alt="">
+                </div>
+                <div class="aboutright">
+                    <p>Welcome to Afya Axis – where quality healthcare meets convenience. Skip the long waits and exhausting trips to the hospital. With just a few clicks, <strong>book an appointment online or call a doctor</strong> directly to your doorstep. Need urgent care? Our network of trusted ambulances, doctors, and clinics ensures help arrives fast.</p>
+                    <p>Choose from flexible options tailored to your needs and budget, with <strong>transparent, varying pricing</strong> for every service. Whether you prefer in-person visits, virtual consultations, or emergency support, we’re here to shorten the distance between you and wellness.</p>
+                    
+                    <h2>Your time matters. Your health matters more.</h2>
+                    <h3>Start your journey to hassle-free care today</h3>
+                </div>
+            </div>
+        </section>
+        <section class="services-section">
+            <div class="servicesbox">
+                <div class="servicesright">
+                    <h2>Your Health, Simplified.</h2>
+                    <h3> Trusted Doctors, On Your Terms</h3>
+                    <p>Connect with certified, experienced doctors instantly—at home, online, or in-clinic. From routine checkups to urgent consultations, our network of medical professionals is ready to prioritize your needs.</p>
+                    <h3>Emergency Ambulances, 24/7</h3>
+                    <p>Critical help, fast. Our GPS-tracked ambulances and trained crews respond within minutes, ensuring you or your loved ones get lifesaving care when every second counts. </p>
+                    <h3>Partnered Clinics Near You</h3>
+                    <p>Access a wide network of modern, well-equipped clinics. Whether it’s a specialist visit, lab test, or follow-up care, find affordable options close to home with transparent pricing.</p>
+                    <h3>Flexible Appointments, Your Way</h3>
+                    <p>Book same-day slots, schedule ahead, or opt for virtual visits—all at varying price points to suit your budget. No more waiting rooms, no more delays.</p>
+                </div>
+                <div class="servicesleft">
+                    <div class="left">
+                        <img src="{% static 'images/appointment.jpeg' %}" alt="" class="image1">
+                        <img src="{% static 'images/Ambulance Preview.jpeg' %}" alt="" class="image2">
+                        
+                    </div>
+                    <div class="right">
+                        <img src="{% static 'images/clinic.jpeg' %}" alt="" class="images1">
+                        <img src="{% static 'images/doctor.jpeg' %}" alt="" class="images2">
+                    </div>
+                </div>
+            </div>
+            <div class="moreservice">
+                <h3>Everything You Need. One Platform.</h3>
+                <p>From urgent ambulances to routine care, we bridge the gap between you and hassle-free health solutions. Start today—your well-being deserves nothing less.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footerbox">
+            <div class="footerlinks">
+                <h2>Our Socials</h2>
+                <a href="">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <h3>facebook</h3>
+                </a>
+                <a href="">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <h3>twitter</h3>
+                </a>
+            </div>
+            <div class="footerlinks">
+                <h2>Quick links</h2>
+                <a href="">About us</a>
+                <a href="">Contact us</a>
+                <a href="">Help</a>
+                <a href="">Faqs</a>
+            </div>
+            <div class="footerlinks">
+                <h2>Our Teams</h2>
+                <a href="">Gallery</a>
+                <a href="">Doctors</a>
+                <a href="">Nearby clinics</a>
+                <a href="">Ambulances</a>
+            </div>
+        </div>
+        <p>&copy;Copyright All rights reserved. Afya Axis 2025</p>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <script src="https://kit.fontawesome.com/7540b12065.js" crossorigin="anonymous"></script>
+</body>
+</html>

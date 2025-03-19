@@ -1,0 +1,254 @@
+{% extends "base/layout.html" %}
+{%load static%}
+<title>{%block title%}Afya axis{%endblock%}</title>
+
+{% block content %}
+{%include 'components/sidebar2.html'%}
+<section class="herobar ">
+    <div class="herobox swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="hero swiper-slide">
+            <div class="lefthero slide slide1">
+                <h1>Your Health, Made Simple</h1>
+                <p>Welcome to Afya Axis—where quality care meets convenience. Whether you prefer the personal touch of an in-person appointment or the flexibility of a virtual visit, we’re here to support your health journey every step of the way.</p>
+                <ul>
+                    <li><span>Comprehensive Care:</span> From routine check-ups to specialized treatments, our experienced team is dedicated to your well-being.</li>
+                    <li><span>Flexible Options:</span> Choose between physical appointments at our modern clinic or virtual consultations from the comfort of your home.</li>
+                    <li><span>Patient-Centered Approach:</span> Your health, your way. We tailor our services to fit your unique needs and lifestyle.</li>
+                </ul>   
+            </div>
+            <div class="righthero slide11">
+                <img src="{% static 'images/backimage.png' %}" alt="">
+            </div>
+          </div>
+          <div class="hero swiper-slide">
+            <div class="lefthero slide slide2">
+                <h1>Appoitments</h1>
+                <p>At Afya Axis, we understand that your health needs are as unique as you are. That’s why we offer flexible appointment options to fit your lifestyle. Whether you prefer the convenience of a virtual visit from the comfort of your home or the hands-on care of an in-person appointment at our clinic, we’re here to provide the same high-quality care you deserve.</p>
+                <ul>
+                    <li><span>Virtual Appointments:</span> Connect with our healthcare professionals through secure video calls. Perfect for follow-ups, consultations, or non-urgent care, virtual visits save you time and travel while ensuring you get the attention you need.</li>
+                    <li><span>In-Person Appointments:</span> Visit our state-of-the-art clinic for comprehensive exams, treatments, or procedures that require face-to-face care. Our team is dedicated to creating a safe and welcoming environment for all your health needs.</li>
+                </ul>
+                        
+                <p>No matter how you choose to meet with us, your health and well-being are our top priority. Schedule your appointment today—your way!"</p>
+            </div>
+            <div class="righthero slide11">
+                <img src="{% static 'images/appoint.png' %}" alt="">
+            </div>
+        </div>
+        <div class="hero swiper-slide">
+            <div class="righthero slide11">
+                <img src="{% static 'images/review.png' %}" alt="">
+            </div>
+            <div class="lefthero slide slide3">
+                <h1>Appoitment Review</h1>
+                <p>We value your feedback! After your appointment—whether it’s in-person or virtual—you can share your experience to help us improve and guide other patients in making informed decisions. Here’s how:</p>
+                <h2>Share your experience</h2>
+                <ul>
+                    <li>Rate your appointment (e.g., 1 to 5 stars).</li>
+                    <li>Write a few sentences about your experience with the doctor, staff, or the appointment process.</li>
+                    <li>Mention if it was a physical or virtual appointment, so others can understand your perspective.</li>
+                </ul>
+                <h2>Submit your Review</h2>
+                <ul>
+                    <li>Once submitted, your review will be posted on our website (with your consent).</li>
+                    <li>We moderate reviews to ensure they are genuine and respectful.</li>
+                </ul>  
+                <p>Your feedback helps us provide better care and helps other patients choose the right appointment type for their needs. Thank you for sharing your experience!</p>
+            </div>
+        </div>
+        <div class="hero swiper-slide  ">
+            <div class="righthero slide11">
+                <img src="{% static 'images/emrgency.png' %}" alt="">
+            </div>
+            <div class="lefthero slide slide4">
+                <h1>Emergency Care Information</h1>
+                <p>Your health and safety are our top priority. If you or a loved one is experiencing a medical emergency, please follow these steps:</p>
+                <h2>Call Emergency Services Immediately:</h2>
+                <ul>
+                    <li>Dial +254705345678 for immediate assistance.</li>
+                    <li>Do not wait or attempt to book an appointment online for urgent medical issues.</li>
+                </ul>
+                <h2>Visit the Nearest Emergency Room:</h2>
+                <ul>
+                    <li>For life-threatening conditions (e.g., chest pain, severe bleeding, difficulty breathing), go to the closest hospital emergency room.</li>
+                </ul>
+                <h2>Urgent but Non-Life-Threatening Issues:</h2>
+                <ul>
+                    <li>If your situation is urgent but not life-threatening, call our clinic at +254705345678 for same-day assistance or advice.</li>
+                </ul>                                     
+                <p><span>Note:</span> Virtual appointments and online booking are not suitable for emergencies. Always seek immediate in-person care for critical health concerns.</span> Virtual appointments and online booking are not suitable for emergencies. Always seek immediate in-person care for critical health concerns.</p>
+            </div>
+        </div>
+        <!-- <div class="hero swiper-slide">Slide 5</div>
+        <div class="hero swiper-slide">Slide 6</div>
+        <div class="hero swiper-slide">Slide 7</div>
+        <div class="hero swiper-slide">Slide 8</div>
+        <div class="hero swiper-slide">Slide 9</div> -->
+        </div>
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+        <div class="swiper-pagination"></div>
+      </div>
+</section>
+<section class="container">
+    <div class="container1">
+        <img src="{% static 'images/information.png' %}" alt="">
+        <p><span>Stay informed:</span> Keep up to date with the latest health information and guidelines from reputable sources.</p>
+    </div>
+    <div class="container1">
+        <img src="{% static 'images/telehealth.png' %}" alt="">
+        <p><span>Utilize Telehealth:</span> Explore telehealth options for convenient and accessible healthcare consultations.</p>
+    </div>
+    <div class="container1">
+        <img src="{% static 'images/community.png' %}" alt="">
+        <p><span>Join Health Communities:</span> Connect with otherswho share your health goals for support and motivation.</p>
+    </div>
+</section>
+<section class="doctors">
+    <div class="doctop">
+        <h1>Top doctors</h1>
+        <a href="#">See all</a>
+    </div>
+    <div class="doctorsbox">
+        <div class="doctorslist">
+            {%for doctor in doctors%} 
+            <div class="doctor">
+                <div class="img">
+                    {% if doctor.profile_picture%}
+                    <img src="{{ doctor.profile_picture.url }}" alt="{{ doctor.last_name }}'s Profile Picture">
+                    {%endif%}
+                </div>
+                <h2>Dr. {{ doctor.last_name }}</h2>
+                <h3>{{ doctor.specialization.name }}</h3>
+                <div class="more">
+                    {% if doctor.availability %}
+                    <form action="{% url 'create_appointment' doctor.id %}">
+                        <button>Appointment</button>
+                    </form>
+                    {% else %}
+                    <p style="background-color:red;"><strong>Unavailable</strong></p>
+                    {% endif %}
+                    
+                    <form action="{% url 'doctor_detail' doctor.id %}">
+                        <button>View</button>
+                    </form>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</section>
+<section class="appointments">
+    <h1>Our Afya Axis Appointments</h1>
+    <p class="intro">Afya Axis-where quality healthcare meets convenience. Skip the long waits and exhausting trips to the hospital. With just a few clicks, book an appointment online or call a doctor directly to your doorstep. Need urgent care? Our network of trusted ambulances, doctors, and clinics ensures help arrives fast. As you apply for the appointments, you are allowed to pick a doctor who meets all your needs, you can do this by viewing our doctors profiles, ratings and reviews from previous patients.</p>
+    <p class="app">Appointments are offered in two ways:</p>
+    <ul>
+        <li>Physical appointment</li>
+        <li>Virtual Appointments
+            <ul>
+                <li>Video call</li>
+                <li>Audio call</li>
+            </ul>
+        </li>
+    </ul>
+    <p>Each appointment type has its own payment that differs from the other. Payments are made by different means as indicated below:</p>
+    <div class="paymentcards">
+        <div class="card">
+            <div class="front">
+                <div class="cardtop">
+                    <img src="{% static 'images/backimage.png' %}" alt="">
+                    <h1>Physical Appointment</h1>
+                </div>
+                <div class="cardimg">
+                    <img src="{% static 'images/physical appointment.png' %}" alt="">
+                </div>
+                <h2>Kshs.1500.00</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consequatur, eveniet voluptas provident iusto eum optio id vitae ullam? Mollitia, fugiat molestias! Inventore totam ea quos culpa officia. Vel, nemo.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="cardtop">
+                <img src="{% static 'images/backimage.png' %}" alt="">
+                <h1>Virtual Appointment</h1>
+            </div>
+            <div class="cardimg">
+                <img src="{% static 'images/virtualappointment.png' %}" alt="">
+            </div>
+            <h2>Kshs.1000.00</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vitae! Non dignissimos illo laudantium modi perferendis saepe labore, eligendi ab tenetur vel nihil, ad dicta veniam odio. Sunt, ipsum necessitatibus.</p>
+        </div>
+    </div>
+    <div class="payment">
+        <h2>Pay with:</h2>
+        <div class="paybox">
+            <div class="method pay1"></div>
+            <div class="method pay2"></div>
+            <div class="method pay3"></div>
+        </div>
+    </div>
+</section>
+<section class="services">
+    <h1>Services</h1>
+    <h2>Below are some ot the common services offered by Afya Axis</h2>
+    <div class="servicebox">
+        <div class="service">
+            <div class="servebanner">
+                <img src="{% static 'images/backimage.png' %}" alt="">
+            </div>
+            <h2>Emergency Serices</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
+        </div>
+        <div class="service">
+            <div class="servebanner">
+                <img src="{% static 'images/backimage.png' %}" alt="">
+            </div>
+            <h2>Emergency Serices</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
+        </div>
+        <div class="service">
+            <div class="servebanner">
+                <img src="{% static 'images/backimage.png' %}" alt="">
+            </div>
+            <h2>Emergency Serices</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
+        </div>
+        <div class="service">
+            <div class="servebanner">
+                <img src="{% static 'images/backimage.png' %}" alt="">
+            </div>
+            <h2>Emergency Serices</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
+        </div>
+    </div>
+</section>
+<section class="faqs">
+    <h2>Frequently asked questions</h2>
+    <div class="faqsdiv">
+        <div class="faq-item"data-aos="fade-left"  data-aos-duration="1000">
+            <h3>What are the symptoms of the flu?</h3>
+            <p>The flu typically presents with fever, cough, sore throat, body aches, and fatigue.</p>
+        </div>
+        <div class="faq-item"data-aos="slide-left"  data-aos-duration="1000">
+            <h3>How can I prevent the spread of COVID-19?</h3>
+            <p>Wearing masks, practicing social distancing, and frequent hand washing are effective measures.</p>
+        </div>
+        <div class="faq-item"data-aos="fade-down"  data-aos-duration="1000">
+            <h3>What is the recommended vaccination schedule for children?</h3>
+            <p>Children should receive vaccinations according to the CDC's recommended schedule.</p>
+        </div>
+        <div class="faq-item"data-aos="fade-left"  data-aos-duration="1000">
+            <h3>What should I do if I have a severe allergic reaction?</h3>
+            <p>Seek immediate medical attention and use an epinephrine auto-injector if available.</p>
+        </div>
+        <div class="faq-item"data-aos="fade-right"  data-aos-duration="1000">
+            <h3>How often should I get a health check-up?</h3>
+            <p>Adults should have a health check-up at least once a year, or as recommended by their doctor.</p>
+        </div>
+        <div class="faq-item"data-aos="fade-up"  data-aos-duration="1000">
+            <h3>What are the benefits of regular exercise?</h3>
+            <p>Regular exercise improves cardiovascular health, strengthens muscles, and enhances mental well-being.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

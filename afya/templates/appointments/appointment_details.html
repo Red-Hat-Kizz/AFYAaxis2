@@ -1,0 +1,20 @@
+<!-- filepath: c:\Users\user\Desktop\AFYA\afya\templates\appointments\appointment_details.html -->
+<div>
+    <h2>Appointment Details</h2>
+    <p><strong>Patient:</strong> {{ appointment.patient.username }}</p>
+    <p><strong>Doctor:</strong> Dr. {{ appointment.doctor.last_name }}</p>
+    <p><strong>Clinic:</strong> {{ appointment.doctor.clinic.name }}</p>
+    <p><strong>Appointment Date:</strong> {{ appointment.appointment_date }}</p>
+    <p><strong>Appointment Time:</strong> {{ appointment.appointment_time }}</p>
+    <p><strong>Type:</strong> {{ appointment.get_appointment_type_display }}</p>
+    <p><strong>Status:</strong> {{ appointment.get_status_display }}</p>
+    <form method="post" action="{% url 'approve_appointment' appointment.id %}">
+        {% csrf_token %}
+        <button type="submit">Approve</button>
+    </form>
+    <form method="post" action="{% url 'reject_appointment' appointment.id %}">
+        {% csrf_token %}
+        <textarea name="reject_reason" placeholder="Reason for rejection"></textarea>
+        <button type="submit">Reject</button>
+    </form>
+</div>

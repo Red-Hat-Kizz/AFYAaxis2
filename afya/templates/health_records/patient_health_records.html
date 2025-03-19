@@ -1,0 +1,22 @@
+{% extends "base/layout.html" %}
+{% block content %}
+<h1>Health Records for {{ patient.user.first_name }} {{ patient.user.last_name }}</h1>
+
+<h2>Health Records</h2>
+<ul>
+    {% for record in health_records %}
+    <li><a href="{% url 'view_health_record' record.id %}">{{ record.date }}: {{ record.description }}</a></li>
+    {% empty %}
+    <li>No health records found.</li>
+    {% endfor %}
+</ul>
+
+<h2>Consultations</h2>
+<ul>
+    {% for consultation in consultations %}
+    <li><a href="{% url 'view_consultation' consultation.id %}">{{ consultation.date }} with Dr. {{ consultation.doctor.first_name }} {{ consultation.doctor.last_name }}</a></li>
+    {% empty %}
+    <li>No consultations found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
