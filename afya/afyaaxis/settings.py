@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'afyaaxis.wsgi.application'
+WSGI_APPLICATION = 'afya.afyaaxis.wsgi.application'
 
 
 # Database
