@@ -6,6 +6,7 @@
     <div class="consultationform">
         <h1>Consultation form</h1>
         <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="inputbox">
                 <label for="">Appointment Type</label><br>
                 {{form.appointment_type}}
@@ -27,9 +28,14 @@
                 {{form.follow_up_instructions}}
             </div>
             <div class="inputbox">
+                <label for="">Notes:</label><br>
+                {{form.notes}}
+            </div>
+            <div class="inputbox">
                 <label for="">Attachments</label><br>
                 {{form.attachments}}
             </div>
+            
             <div class="inputbox">
                 <button>Submit</button>
             </div>

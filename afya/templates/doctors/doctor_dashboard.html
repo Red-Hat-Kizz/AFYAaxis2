@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 <div class="mainleft">
-    {%include 'doctors/navbar.html'%}
+    {% include 'doctors/navbar.html' %}
     <div class="welcome">
         <div class="welcomeleft">
             <div class="date">
@@ -11,7 +11,7 @@
                 <h2>{{ current_date }} {{ current_day }}</h2>
             </div>
             <div class="message">
-                <h1>Good Day, Dr. {{ doctor.first_name }} {{ doctor.last_name }}!</h1>
+                <h1>Good Day, Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}!</h1>
                 <p>Have a nice {{ current_day }}</p>
             </div>
         </div>
@@ -20,19 +20,19 @@
         <div class="static">
             <h1>OFFLINE WORK</h1>
             <div class="stat">
-                <img src="{% static 'images/physicalappointment.png'%}" alt="">
+                <img src="{% static 'images/physicalappointment.png' %}" alt="">
                 <div class="statcount orange">
-                    <h2>{{physical_appointments_count}}</h2>
-                    <h3 >Physical appointment</h3>
+                    <h2>{{ physical_appointments_count }}</h2>
+                    <h3>Physical appointments</h3>
                 </div>
             </div>
         </div>
         <div class="static">
             <h1>ONLINE WORK</h1>
             <div class="stat">
-                <img src="{% static 'images/telehealth.png'%}" alt="">
+                <img src="{% static 'images/telehealth.png' %}" alt="">
                 <div class="statcount green">
-                    <h2>{{virtual_appointments_count}}</h2>
+                    <h2>{{ virtual_appointments_count }}</h2>
                     <h3>Virtual Consultations</h3>
                 </div>
             </div>
@@ -40,7 +40,7 @@
         <div class="static">
             <h1>LABORATORY WORK</h1>
             <div class="stat">
-                <img src="{% static 'images/laboatory work.png'%}" alt="">
+                <img src="{% static 'images/laboatory work.png' %}" alt="">
                 <div class="statcount purple">
                     <h2>21</h2>
                     <h3>Laboratory Analysis</h3>
@@ -54,9 +54,8 @@
                 <h1>My Scheduled Appointments</h1>
                 <span>Today</span>
             </div>
-            {% if approved_appointments %}
             <div class="eventbox">
-                {% for appointment in approved_appointments %}
+                {% for appointment in approved_appointments_by_date %}
                 <div class="event">
                     <div class="userimage">
                         {% if appointment.patient.profile.profile_picture %}
@@ -67,25 +66,23 @@
                     </div>
                     <p>{{ appointment.appointment_type }} appointment with {{ appointment.patient.first_name }} {{ appointment.patient.last_name }} at {{ appointment.appointment_time }}</p>
                     <div class="eventoption">
-                        {% if not appointment.completed %}
+                        {% if appointment.status != 'Completed' %}
                         <form method="post" action="{% url 'mark_appointment_as_completed' appointment.id %}">
                             {% csrf_token %}
                             <button>Mark as Complete</button>
                         </form>
-                        {%else%}
-                        <form action="">
-                            <button class="consultbtn">Fill Consultation Form</button>
+                        {% else %}
+                        <form action="{%url 'create_consultation_with_appointment' appointment.id %}">
+                            <button class="consultbtn">Consultation Form</button>
                         </form>
                         {% endif %}
                     </div>
                 </div>
-                {% empty %}
-                    <li>No approved appointments found.</li>
                 {% endfor %}
+                {% if not approved_appointments_by_date %}
+                <p>No approved appointments found for today.</p>
+                {% endif %}
             </div>
-            {% else %}
-            <p>No approved appointments found.</p>
-            {% endif %}
         </div>
         <div class="eventsright">
             <div class="eventtop">
@@ -132,5 +129,5 @@
         </div>
     </div>
 </div>
-{%include 'doctors/dashboardright.html'%}
+{% include 'doctors/dashboardright.html' %}
 {% endblock %}

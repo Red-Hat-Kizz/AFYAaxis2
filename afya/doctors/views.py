@@ -28,29 +28,26 @@ def doctor_detail(request, doctor_id):
 @user_passes_test(lambda u: u.is_staff and not u.is_superuser)
 def doctor_dashboard(request):
     doctor = get_object_or_404(Doctor, user=request.user)
-    consultations = Consultation.objects.filter(doctor=doctor)
-    approved_appointments = Appointment.objects.filter(doctor=doctor, status='Approved')
+    current_date = datetime.now().date()  # Use date() to get the date in YYYY-MM-DD format
+    current_date_str = current_date.strftime("%B %d, %Y")
+    current_day = datetime.now().strftime("%A")
+    
+    approved_appointments_by_date = Appointment.objects.filter(doctor=doctor, appointment_date=current_date).order_by('-created_at')
     completed_appointments = Appointment.objects.filter(doctor=doctor, status='Completed')
     unread_notifications_count = Notification.objects.filter(user=request.user, is_read=False).count()
-    
-    # Get the current date and day
-    current_date = datetime.now().strftime("%B %d, %Y")
-    current_day = datetime.now().strftime("%A")
     
     physical_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Physical').count()
     virtual_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Virtual').count()
     
-    
     context = {
         'doctor': doctor,
-        'consultations': consultations,
-        'approved_appointments': approved_appointments,
+        'approved_appointments_by_date': approved_appointments_by_date,
+        'completed_appointments': completed_appointments,
         'unread_notifications_count': unread_notifications_count,
-        'completed_appointments':completed_appointments,
-        'current_date': current_date,
+        'current_date': current_date_str,
         'current_day': current_day,
-        'physical_appointments_count':physical_appointments_count,
-        'virtual_appointments_count':virtual_appointments_count,
+        'physical_appointments_count': physical_appointments_count,
+        'virtual_appointments_count': virtual_appointments_count,
     }
     return render(request, 'doctors/doctor_dashboard.html', context)
 
@@ -146,9 +143,11 @@ def doctor_notifications(request):
     unread_notifications_count = Notification.objects.filter(user=request.user, is_read=False).count()
     
     # Get the current date and day
-    current_date = datetime.now().strftime("%B %d, %Y")
+    current_date = datetime.now().date()
+    current_date_str = current_date.strftime("%B %d, %Y")
     current_day = datetime.now().strftime("%A")
     
+    approved_appointments_by_date = Appointment.objects.filter(doctor=doctor, status='Approved', appointment_date=current_date)
     physical_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Physical').count()
     virtual_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Virtual').count()
     
@@ -160,11 +159,12 @@ def doctor_notifications(request):
         'approved_appointments': approved_appointments,
         'unread_notifications_count': unread_notifications_count,
         'completed_appointments':completed_appointments,
-        'current_date': current_date,
+        'current_date': current_date_str,
         'current_day': current_day,
         'physical_appointments_count':physical_appointments_count,
         'virtual_appointments_count':virtual_appointments_count,
-        'notifications':notifications
+        'notifications':notifications,
+        'approved_appointments_by_date':approved_appointments_by_date,
     }
     return render(request, 'notifications/doctor_notifications.html', context)
 

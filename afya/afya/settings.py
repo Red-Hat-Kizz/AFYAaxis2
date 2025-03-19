@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'afya.afyaaxis.wsgi.application'
+WSGI_APPLICATION = 'afya.wsgi.application'
 
 
 # Database
@@ -145,12 +145,8 @@ DEFAULT_FROM_EMAIL = 'elishakwena@gmail.com'
 
 
 
-ALLOWED_HOSTS = [
-    'https://5eb0-41-90-65-128.ngrok-free.app',
-    'localhost',  # Optional: For local development
-    '127.0.0.1',  # Optional: For local development
-]
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    'https://5eb0-41-90-65-128.ngrok-free.app',
+    'https://b2e2-41-220-233-110.ngrok-free.app',
     'https://your-other-domain.com',
 ]

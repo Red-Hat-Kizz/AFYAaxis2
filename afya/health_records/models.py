@@ -22,7 +22,7 @@ class HealthRecord(models.Model):
         return f"Health Record for {self.patient.user.first_name} {self.patient.user.last_name} on {self.date}"
 
 class Consultation(models.Model):
-    patient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='patient_consultations')
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='consultations')
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_consultations')
     date = models.DateField(auto_now_add=True)
     notes = models.TextField()
@@ -34,4 +34,4 @@ class Consultation(models.Model):
     attachments = models.FileField(upload_to='consultation_attachments/', blank=True, null=True)
 
     def __str__(self):
-        return f"Consultation for {self.patient.first_name} {self.patient.last_name} with Dr. {self.doctor.user.first_name} {self.doctor.user.last_name} on {self.date}"
+        return f"Consultation for {self.patient.user.first_name} {self.patient.user.last_name} with Dr. {self.doctor.user.first_name} {self.doctor.user.last_name} on {self.date}"

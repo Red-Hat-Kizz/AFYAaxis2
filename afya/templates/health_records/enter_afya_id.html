@@ -7,4 +7,11 @@
     <input type="text" id="afya_id" name="afya_id" required>
     <button type="submit">Submit</button>
 </form>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% endblock %}
