@@ -16,7 +16,7 @@
             {% if doctors %}
             <div class="doctors">
                 <h1>Doctors</h1>
-                <div class="doctorsresult">
+                <div class="doctorsresult" >
                     {% for doctor in doctors %}
                     <div class="doctorinfo">
                         <a href="{% url 'doctor_detail' doctor.id %}">
@@ -63,14 +63,14 @@
                 </div>
             </div>
             {% endif %}
-            {% if services_with_clinics %}
+            {% comment %} {% if services_with_clinics %}
             <div class="doctors">
                 <h1>Services</h1>
                 <div class="doctorsresult">
                     {% for service, service_clinics in services_with_clinics %}
                     <div class="doctorinfo">
                         <h2>{{ service.name }}</h2>
-                        <a>
+                        <div class="servicebosed">
                             <div class="imageside">
                                 {% if service.image %}
                                 <img src="{{ service.image.url }}" alt="" />
@@ -89,7 +89,7 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
@@ -106,7 +106,7 @@
                     {% endfor %}
                 </div>
             </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
     </div>
 </section>

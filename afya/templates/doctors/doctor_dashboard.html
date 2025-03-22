@@ -11,7 +11,7 @@
                 <h2>{{ current_date }} {{ current_day }}</h2>
             </div>
             <div class="message">
-                <h1>Good Day, Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}!</h1>
+                <h1>Good Day, Dr. {{ doctor.first_name }} {{ doctor.last_name }}!</h1>
                 <p>Have a nice {{ current_day }}</p>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="stat">
                 <img src="{% static 'images/physicalappointment.png' %}" alt="">
                 <div class="statcount orange">
-                    <h2>{{ physical_appointments_count }}</h2>
+                    <h2>6</h2>
                     <h3>Physical appointments</h3>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="stat">
                 <img src="{% static 'images/telehealth.png' %}" alt="">
                 <div class="statcount green">
-                    <h2>{{ virtual_appointments_count }}</h2>
+                    <h2>9</h2>
                     <h3>Virtual Consultations</h3>
                 </div>
             </div>

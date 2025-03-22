@@ -3,10 +3,33 @@
 
 {% block content %}
 {%include 'components/sidebar2.html'%}
-<h1>Create Appointment with Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h1>
-<form method="post">
+<h1>Book an Appointment with Dr. {{ doctor.first_name }} {{ doctor.last_name }}</h1>
+{% comment %} <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Create Appointment</button>
-</form>
+</form> {% endcomment %}
+<section class="appointment-form">
+    <form method="post">
+        {% csrf_token %}
+        <div class="formtop">
+            <img src="/images/logo.png" alt="">
+            <h1>Afya Axis appointment form</h1>
+        </div>
+        <div class="inputcontainer">
+            <label for="">Appointment_date</label><br>
+            {{form.appointment_date}}
+            <label for="">Appointment_time</label>
+            {{form.appointment_time}}
+        </div>
+        <div class="inputcontainer">
+            <label for="">Type of Appointment</label>
+            {{form.appointment_type}}<
+        </div>
+        
+        <div class="inputcontainer">
+            <button>Submit Appointment</button>
+        </div>
+    </form>
+</section>
 {% endblock %}

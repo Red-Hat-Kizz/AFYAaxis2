@@ -8,6 +8,7 @@ from doctors.models import Doctor
 from django.contrib.auth.models import User
 from notifications.models import Notification
 from datetime import datetime
+  
 
 # View for entering Afya ID to access health records (for both patients and admins)
 @login_required
@@ -67,8 +68,8 @@ def create_consultation(request, appointment_id):
     current_date = datetime.now().strftime("%B %d, %Y")
     current_day = datetime.now().strftime("%A")
     
-    physical_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Physical').count()
-    virtual_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Virtual').count()
+    physical_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Physical',status="Completed").count()
+    virtual_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Virtual',status="Completed").count()
     
     notifications = Notification.objects.filter(user=request.user).order_by('-created_at')
     

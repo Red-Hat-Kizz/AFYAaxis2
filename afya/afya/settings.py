@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'chatbot.apps.ChatbotConfig',
     'health_records.apps.HealthRecordsConfig',
     'channels',
+    'widget_tweaks'
 ]
 
 ASGI_APPLICATION = 'afya.asgi.application'
@@ -147,6 +148,6 @@ DEFAULT_FROM_EMAIL = 'elishakwena@gmail.com'
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    'https://b2e2-41-220-233-110.ngrok-free.app',
+    'https://2f3c-105-161-38-236.ngrok-free.app',
     'https://your-other-domain.com',
 ]

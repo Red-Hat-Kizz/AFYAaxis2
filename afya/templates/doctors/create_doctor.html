@@ -6,7 +6,8 @@
 
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="docinput">
+            {{doctor_form.as_p}}
+            {% comment %} <div class="docinput">
                 <label for="">First_name:</label>
                 {{doctor_form.first_name}}
             </div>
@@ -77,7 +78,7 @@
             <div class="docinput">
                 <label for="">years of worked at Afya Axis:</label>
                 {{doctor_form.years_worked_at_afyaaxis}}
-            </div>
+            </div> {% endcomment %}
             <div class="docinput">
                 <button>Submit</button>
             </div>

@@ -1,5 +1,6 @@
 {% extends "base/layout.html" %}
 {%load static%}
+{% load widget_tweaks %}
 <title>{%block title%}User Profile{%endblock%}</title>
 
 {% block content %}
@@ -7,12 +8,18 @@
 <h1>Profile update</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="inputboxes">
+        {% for field in form %}
+            <div class="inputboxes">
+                {{field.label_tag}}
+                {{field|add_class:'form-control'}}
+            </div>
+        {%endfor%}
+        {% comment %} <div class="inputboxes">
             <label for="">Username:</label><br>
             {{form.username}}
-            {% comment %} <input type="text" class="form-control"> {% endcomment %}
+            {% comment %} <input type="text" class="form-control"> 
         </div>
-        <div class="inputboxes">
+      {% comment %}  <div class="inputboxes">
             <label for="">First_Name:</label><br>
             {{form.first_name}}
         </div>
@@ -91,7 +98,7 @@
         <div class="inputboxes">
             <label for="">Address:</label><br>
             {{form.address}}
-        </div>
+        </div> {% endcomment %}
         <div class="inputboxes">
             <button>Save</button>
         </div>

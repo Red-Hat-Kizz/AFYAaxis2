@@ -14,6 +14,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from notifications.models import Notification   
 from datetime import datetime
+from django.utils import timezone
 
 def doctor_list(request):
     doctors = Doctor.objects.all()
@@ -31,16 +32,19 @@ def doctor_dashboard(request):
     current_date = datetime.now().date()  # Use date() to get the date in YYYY-MM-DD format
     current_date_str = current_date.strftime("%B %d, %Y")
     current_day = datetime.now().strftime("%A")
+    today = datetime.now().date()
+    current_month_name = current_date.strftime("%B")
     
     approved_appointments_by_date = Appointment.objects.filter(doctor=doctor, appointment_date=current_date).order_by('-created_at')
     completed_appointments = Appointment.objects.filter(doctor=doctor, status='Completed')
     unread_notifications_count = Notification.objects.filter(user=request.user, is_read=False).count()
     
-    physical_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Physical').count()
-    virtual_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Virtual').count()
+    physical_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Physical',status="Completed").count()
+    virtual_appointments_count = Appointment.objects.filter(doctor=doctor, appointment_type='Virtual',status="Completed").count()
     
     context = {
         'doctor': doctor,
+        'current_month_name':current_month_name,
         'approved_appointments_by_date': approved_appointments_by_date,
         'completed_appointments': completed_appointments,
         'unread_notifications_count': unread_notifications_count,
@@ -192,11 +196,19 @@ def mark_appointment_as_completed(request, appointment_id):
 
 @login_required
 def doctor_appointments(request):
+    current_date = timezone.now().date()
+    current_month_name = current_date.strftime("%B")
     doctor = get_object_or_404(Doctor, user=request.user)
     appointments = Appointment.objects.filter(doctor=doctor).order_by('-appointment_date')
-    
+    approved_appointments = Appointment.objects.filter(doctor=doctor, status='Approved')
+    unread_notifications_count = Notification.objects.filter(user=request.user, is_read=False).count()
+    completed_appointments = Appointment.objects.filter(doctor=doctor, status='Completed')
     context = {
         'doctor': doctor,
         'appointments': appointments,
+        'completed_appointments':completed_appointments,
+        'approved_appointments':approved_appointments,
+        'unread_notifications_count':unread_notifications_count,
+        'current_month_name':current_month_name
     }
     return render(request, 'appointments/doctors_appointments.html', context)

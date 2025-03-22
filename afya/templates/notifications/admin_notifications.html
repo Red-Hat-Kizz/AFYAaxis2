@@ -25,7 +25,7 @@
                 {% endif %}
             </div>
             <div class="notificationight">
-                <p>{{ notification.applicant_first_name }} {{ notification.applicant_last_name }} applied for a {{ notification.appointment_type }} appointment with Dr. {{ notification.doctor_name }} on {{ notification.appointment_date }} at {{ notification.appointment_time }}</p>
+                <p>{{ notification.applicant_first_name }} {{ notification.applicant_last_name }} applied for a {{ notification.appointment_type }} appointment with {{ notification.doctor_name }} on {{ notification.appointment_date }} at {{ notification.appointment_time }}</p>
             </div>
             <div class="actionnote">
                 {% if not notification.is_read %}

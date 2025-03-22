@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .models import Clinic, Service
 from django.contrib.auth.decorators import login_required, user_passes_test 
 from django.utils.timezone import localtime
@@ -36,7 +36,7 @@ def create_clinic(request):
         form = ClinicForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Clinic created successfully.')
+            # messages.success(request, 'Clinic created successfully.')
             return redirect('dashboard_home')
     else:
         form = ClinicForm()

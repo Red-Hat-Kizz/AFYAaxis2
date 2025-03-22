@@ -119,3 +119,43 @@ form .inputdiv button{
 .google img{
     width: 40px;
 }
+
+/* doctorform=========================== */
+.doctorform{
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0,0.2);
+    padding: 10px;
+}
+.doctorform form {
+    width: 100%;
+}
+.doctorform form .docinput{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.doctorform form .docinput .form-controltext,
+.doctorform form .docinput .form-control{
+    width: 100%;
+    font-size: 16px;
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+.doctorform form .docinput .form-controltext{
+    max-height: 100px;
+    height: 100px;
+}
+.doctorform form .docinput button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #0c8de0;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;   
+}
+.doctorform form .docinput label{
+    color: #0c8de0;
+}

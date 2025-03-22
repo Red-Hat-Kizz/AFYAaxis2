@@ -115,8 +115,10 @@
             {%for doctor in doctors%} 
             <div class="doctor">
                 <div class="img">
-                    {% if doctor.profile_picture%}
-                    <img src="{{ doctor.profile_picture.url }}" alt="{{ doctor.last_name }}'s Profile Picture">
+                    {%if doctor.profile_picture%}
+                    <img src="{{doctor.profile_picture.url}}" alt="">
+                    {%else%}
+                    <img src="{% static 'images/default-doc.png' %}" alt="">
                     {%endif%}
                 </div>
                 <h2>Dr. {{ doctor.last_name }}</h2>
@@ -194,30 +196,30 @@
     <div class="servicebox">
         <div class="service">
             <div class="servebanner">
-                <img src="{% static 'images/backimage.png' %}" alt="">
+                <img src="{% static 'images/dental care.jpeg' %}" alt="">
             </div>
-            <h2>Emergency Serices</h2>
+            <h2>Dental Care</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
         </div>
         <div class="service">
             <div class="servebanner">
-                <img src="{% static 'images/backimage.png' %}" alt="">
+                <img src="{% static 'images/eye care.jpeg' %}" alt="">
             </div>
-            <h2>Emergency Serices</h2>
+            <h2>Eye Care</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
         </div>
         <div class="service">
             <div class="servebanner">
-                <img src="{% static 'images/backimage.png' %}" alt="">
+                <img src="{% static 'images/screening.jpeg' %}" alt="">
             </div>
-            <h2>Emergency Serices</h2>
+            <h2>Screening</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
         </div>
         <div class="service">
             <div class="servebanner">
-                <img src="{% static 'images/backimage.png' %}" alt="">
+                <img src="{% static 'images/checkup.jpeg' %}" alt="">
             </div>
-            <h2>Emergency Serices</h2>
+            <h2>Regular checkup</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam saepe mollitia soluta tenetur sed ipsam qui, ducimus asperiores corrupti blanditiis quod, pariatur quas praesentium itaque, quo dignissimos sunt. Sint, molestiae?</p>
         </div>
     </div>

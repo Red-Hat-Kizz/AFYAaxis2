@@ -8,8 +8,10 @@
     <div class="profilecontainer">
         <div class="topside">
             <div class="imageside">
-                {% if doctor.profile_picture%}
-                    <img src="{{ doctor.profile_picture.url }}" alt="{{ doctor.last_name }}'s Profile Picture">
+                {%if doctor.profile_picture%}
+                <img src="{{doctor.profile_picture.url}}" alt="">
+                {%else%}
+                <img src="{% static 'images/default-doc.png' %}" alt="">
                 {%endif%}
             </div>
             <div class="detailside">
@@ -63,7 +65,7 @@
                     <h2>Distance From CBD: <span>6 Km</span></h2>
                 </div>
                 <div class="aboutdoc">
-                    <h1>About Dr. <span>Elisha Kwena</span></h1>
+                    <h1>About Dr. <span>{{ doctor.first_name }} {{ doctor.last_name }}</span></h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur nam quasi, quidem culpa iusto rerum nesciunt suscipit. Perspiciatis fuga tenetur qui cumque blanditiis, mollitia est illum placeat voluptatibus in.</p>
                 </div>
             </div>

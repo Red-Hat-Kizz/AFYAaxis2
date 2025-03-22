@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from doctors.models import Doctor
+import uuid
 
 class Patient(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     afya_id = models.CharField(max_length=100, unique=True)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(auto_now_add=True)
     address = models.TextField()
     phone_number = models.CharField(max_length=15)
     emergency_contact = models.CharField(max_length=100)
@@ -35,3 +36,6 @@ class Consultation(models.Model):
 
     def __str__(self):
         return f"Consultation for {self.patient.user.first_name} {self.patient.user.last_name} with Dr. {self.doctor.user.first_name} {self.doctor.user.last_name} on {self.date}"
+    
+    
+    
